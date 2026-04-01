@@ -1,0 +1,164 @@
+{
+  "id": "HAS",
+  "name": "HAS — Certification V2025",
+  "version": "V2025 — 6ème Cycle",
+  "active": true,
+  "chapters": [
+    {
+      "id": "HAS-CH1",
+      "code": "CH1",
+      "name": "Le Patient",
+      "description": "Droits, parcours, information, expérience",
+      "weight": 35,
+      "objectives": [
+        {
+          "id": "HAS-CH1-OBJ1",
+          "code": "1.1",
+          "name": "Droits et dignité du patient",
+          "criteria": [
+            { "id": "HAS-1.1-01", "code": "1.1-01", "title": "Respect de l'intimité et de la dignité", "description": "L'organisation garantit le respect systématique de l'intimité et de la dignité des patients lors de toutes les prises en charge.", "imperatif": true },
+            { "id": "HAS-1.1-02", "code": "1.1-02", "title": "Consentement éclairé du patient", "description": "Le recueil du consentement libre et éclairé est formalisé et tracé pour tous les actes invasifs.", "imperatif": false },
+            { "id": "HAS-1.1-03", "code": "1.1-03", "title": "Bientraitance et prévention de la maltraitance", "description": "Un programme de bientraitance et de prévention de la maltraitance est actif.", "imperatif": false }
+          ]
+        },
+        {
+          "id": "HAS-CH1-OBJ2",
+          "code": "1.2",
+          "name": "Parcours du patient",
+          "criteria": [
+            { "id": "HAS-1.2-01", "code": "1.2-01", "title": "Fluidité du parcours de soins", "description": "L'organisation assure la fluidité du parcours patient de l'admission à la sortie.", "imperatif": false },
+            { "id": "HAS-1.2-02", "code": "1.2-02", "title": "Gestion des sorties et retours à domicile", "description": "La sortie est planifiée et organisée pour garantir la continuité des soins.", "imperatif": false },
+            { "id": "HAS-1.2-03", "code": "1.2-03", "title": "Gestion de la douleur", "description": "L'évaluation et la prise en charge de la douleur sont systématiques et tracées.", "imperatif": false }
+          ]
+        },
+        {
+          "id": "HAS-CH1-OBJ3",
+          "code": "1.3",
+          "name": "Information du patient",
+          "criteria": [
+            { "id": "HAS-1.3-01", "code": "1.3-01", "title": "Information sur l'état de santé", "description": "Les patients reçoivent une information adaptée, complète et compréhensible sur leur état de santé.", "imperatif": false },
+            { "id": "HAS-1.3-02", "code": "1.3-02", "title": "Accès au dossier patient", "description": "L'accès au dossier médical est garanti dans les délais légaux.", "imperatif": false }
+          ]
+        },
+        {
+          "id": "HAS-CH1-OBJ4",
+          "code": "1.4",
+          "name": "Expérience du patient",
+          "criteria": [
+            { "id": "HAS-1.4-01", "code": "1.4-01", "title": "Mesure de la satisfaction patient", "description": "La satisfaction des patients est mesurée régulièrement via des enquêtes validées.", "imperatif": false },
+            { "id": "HAS-1.4-02", "code": "1.4-02", "title": "Gestion des réclamations", "description": "Un processus formalisé de gestion des réclamations est en place et les délais de réponse sont respectés.", "imperatif": false }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "HAS-CH2",
+      "code": "CH2",
+      "name": "Les Équipes de Soins",
+      "description": "Pratiques cliniques, médicaments, risques, secteurs critiques",
+      "weight": 45,
+      "objectives": [
+        {
+          "id": "HAS-CH2-OBJ1",
+          "code": "2.1",
+          "name": "Pertinence et sécurité des pratiques",
+          "criteria": [
+            { "id": "HAS-2.1-01", "code": "2.1-01", "title": "Pertinence des actes cliniques", "description": "Les actes cliniques sont réalisés en conformité avec les recommandations de bonnes pratiques.", "imperatif": false },
+            { "id": "HAS-2.1-02", "code": "2.1-02", "title": "Traçabilité des actes", "description": "Tous les actes cliniques sont tracés de manière complète et en temps réel.", "imperatif": false }
+          ]
+        },
+        {
+          "id": "HAS-CH2-OBJ2",
+          "code": "2.2",
+          "name": "Sécurité de la prise en charge chirurgicale",
+          "criteria": [
+            { "id": "HAS-2.2-12", "code": "2.2-12", "title": "Checklist bloc opératoire", "description": "La checklist HAS « Sécurité du patient au bloc opératoire » est utilisée et complétée pour chaque intervention.", "imperatif": true },
+            { "id": "HAS-2.2-02", "code": "2.2-02", "title": "Marquage du site opératoire", "description": "Le site opératoire est systématiquement marqué avant toute intervention.", "imperatif": false }
+          ]
+        },
+        {
+          "id": "HAS-CH2-OBJ3",
+          "code": "2.3",
+          "name": "Prévention des risques associés aux soins",
+          "criteria": [
+            { "id": "HAS-2.3-01", "code": "2.3-01", "title": "Identification du patient", "description": "L'identification du patient est vérifiée à chaque étape de sa prise en charge avec au moins 2 identifiants concordants.", "imperatif": true },
+            { "id": "HAS-2.3-02", "code": "2.3-02", "title": "Prévention des chutes", "description": "Une évaluation du risque de chute est systématique à l'admission et lors de chaque changement d'état clinique.", "imperatif": false },
+            { "id": "HAS-2.3-03", "code": "2.3-03", "title": "Prévention des infections associées aux soins", "description": "Les précautions standard et complémentaires sont appliquées systématiquement.", "imperatif": true },
+            { "id": "HAS-2.3-04", "code": "2.3-04", "title": "Prévention des escarres", "description": "L'évaluation du risque d'escarre est systématique et le protocole de prévention est appliqué.", "imperatif": false }
+          ]
+        },
+        {
+          "id": "HAS-CH2-OBJ4",
+          "code": "2.4",
+          "name": "Sécurité de la prise en charge médicamenteuse",
+          "criteria": [
+            { "id": "HAS-2.4-02", "code": "2.4-02", "title": "Pertinence des prescriptions antibiotiques", "description": "La prescription des antibiotiques respecte les recommandations de bon usage et est tracée avec indication thérapeutique.", "imperatif": true },
+            { "id": "HAS-2.4-03", "code": "2.4-03", "title": "Sécurité de l'administration médicamenteuse", "description": "Les 5 bons de l'administration médicamenteuse (bon patient, bon médicament, bonne dose, bonne voie, bon moment) sont respectés.", "imperatif": false },
+            { "id": "HAS-2.4-04", "code": "2.4-04", "title": "Réconciliation médicamenteuse", "description": "La réconciliation médicamenteuse est réalisée à l'admission et à la sortie.", "imperatif": false }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "HAS-CH3",
+      "code": "CH3",
+      "name": "L'Établissement",
+      "description": "Gouvernance, ressources humaines, territoires, SI/numérique",
+      "weight": 20,
+      "objectives": [
+        {
+          "id": "HAS-CH3-OBJ1",
+          "code": "3.1",
+          "name": "Gouvernance et pilotage de la qualité",
+          "criteria": [
+            { "id": "HAS-3.1-01", "code": "3.1-01", "title": "Politique qualité et sécurité", "description": "L'établissement dispose d'une politique qualité-sécurité formalisée, connue et déclinée dans les services.", "imperatif": false },
+            { "id": "HAS-3.1-02", "code": "3.1-02", "title": "Système de déclaration des événements indésirables", "description": "Un système de déclaration des EI, accessible et non punitif, est en place et actif.", "imperatif": false }
+          ]
+        },
+        {
+          "id": "HAS-CH3-OBJ2",
+          "code": "3.2",
+          "name": "Ressources humaines et compétences",
+          "criteria": [
+            { "id": "HAS-3.2-01", "code": "3.2-01", "title": "Adéquation des effectifs", "description": "Les effectifs sont adaptés à l'activité et aux besoins en sécurité des patients.", "imperatif": false },
+            { "id": "HAS-3.2-02", "code": "3.2-02", "title": "Formation et compétences du personnel", "description": "Un plan de développement des compétences est en place et suivi.", "imperatif": false }
+          ]
+        },
+        {
+          "id": "HAS-CH3-OBJ3",
+          "code": "3.3",
+          "name": "Ancrage territorial et partenariats",
+          "criteria": [
+            { "id": "HAS-3.3-05", "code": "3.3-05", "title": "Prévention des transferts évitables personnes âgées", "description": "Un protocole de prévention des hospitalisations et transferts évitables pour les personnes âgées est mis en œuvre.", "imperatif": true }
+          ]
+        },
+        {
+          "id": "HAS-CH3-OBJ4",
+          "code": "3.6",
+          "name": "Système d'information et numérique",
+          "criteria": [
+            { "id": "HAS-3.6-01", "code": "3.6-01", "title": "Qualité et disponibilité du dossier patient", "description": "Le dossier patient est complet, disponible en temps réel et sécurisé.", "imperatif": false },
+            { "id": "HAS-3.6-02", "code": "3.6-02", "title": "Maîtrise des risques de sécurité numérique", "description": "L'établissement dispose d'une politique de cybersécurité formalisée et d'un plan de réponse aux incidents.", "imperatif": true },
+            { "id": "HAS-3.6-03", "code": "3.6-03", "title": "Durabilité environnementale numérique", "description": "L'établissement intègre des critères environnementaux dans sa politique numérique.", "imperatif": false }
+          ]
+        }
+      ]
+    }
+  ],
+  "imperatifCriteria": [
+    { "code": "1.1-01", "title": "Respect intimité et dignité", "chapter": 1 },
+    { "code": "2.2-12", "title": "Checklist bloc opératoire", "chapter": 2 },
+    { "code": "2.3-01", "title": "Identification patient", "chapter": 2 },
+    { "code": "2.3-03", "title": "Prévention infections", "chapter": 2 },
+    { "code": "2.4-02", "title": "Pertinence prescriptions antibiotiques", "chapter": 2 },
+    { "code": "3.3-05", "title": "Prévention transferts évitables PA", "chapter": 3 },
+    { "code": "3.6-02", "title": "Maîtrise risques sécurité numérique", "chapter": 3 }
+  ],
+  "evaluationMethods": [
+    "Patient traceur",
+    "Parcours traceur",
+    "Traceur ciblé",
+    "Audit système",
+    "Observation"
+  ]
+}

@@ -1,0 +1,830 @@
+
+
+ANDAR
+أنظر
+
+
+Spécification Technique Complète
+Dashboard de Conformité Multi-Référentiel
+Accreditation Canada Diamond · JCI 8th Ed. · HAS V2025
+
+Environnement cible : Google Antigravity
+Mars 2026 — v1.0
+
+Dr. Rida Akodad
+CMO Doctify Health | Adjoint Scientifique du Directeur HUIM6
+
+DOCUMENT TECHNIQUE — CONFIDENTIEL
+
+Table des Matières
+TOC \h \o "1-3"
+
+
+1. Vue d’Ensemble du Produit
+1.1 Objectif
+Andar Dashboard est une plateforme web de suivi de conformité hospitalière multi-référentiel. Elle permet à un hôpital de visualiser en temps réel sa progression vers l’accréditation selon trois cadres internationaux : Accreditation Canada Diamond, JCI (8ème édition), et HAS (V2025).
+Le système ingère des données via import Excel/CSV et connexion directe aux systèmes d’information hospitalier (HIS), puis calcule automatiquement les indicateurs de conformité par domaine, génère des alertes, et produit des rapports formatés pour les évaluateurs.
+1.2 Utilisateurs Cibles
+Rôle
+Usage principal
+Fréquence
+Directeur Général
+Vue synthétique, décisions stratégiques
+Quotidien (WhatsApp) + Hebdo (dashboard)
+Responsable Qualité
+Suivi détaillé, plans d’action, rapports
+Quotidien
+Chef de Département
+Conformité de son service, tâches assignées
+2–3x/semaine
+Chef Contrôle Infectieux
+KPIs IPAC, audits, taux d’infections
+Quotidien
+Équipe DSI
+Intégration HIS, maintenance, sécurité
+Hebdomadaire
+
+1.3 Positionnement dans la Roadmap HUIM6
+Ce dashboard est le premier livrable de la Phase 1 — Observer et Mesurer de la Feuille de Route Stratégique IA du HUIM6 (présentée en mars 2026). Il s’intègre directement dans l’Initiative 1 (Tableau de Bord Clinique Vivant) en y ajoutant la dimension accréditation.
+
+2. Référentiels d’Accréditation
+2.1 Accreditation Canada Diamond (Qmentum Global)
+Le niveau Diamond est le plus élevé de la certification Accreditation Canada. Il exige une conformité proche de 100% sur l’ensemble des standards et des ROPs (Required Organizational Practices). Le programme Qmentum Global structure l’évaluation autour de 6 domaines de sécurité patient.
+6 Domaines de Sécurité Patient (ROPs)
+Domaine
+ROPs clés
+KPIs Dashboard
+Culture de Sécurité
+Responsabilité qualité, divulgation incidents, rapports trimestriels
+Taux déclaration incidents, % rapports produits
+Communication
+Identification patient, liste abréviations interdites, transfert info, réconciliation médicamenteuse, checklist chirurgicale
+% patients identifiés 2 ID, taux checklist complète
+Médicaments
+Antimicrobiens, électrolytes concentrés, héparine, hauts risques, pompes perfusion, narcotiques
+Taux erreurs méd., % protocoles appliqués
+Vie au travail
+Flux patient, sécurité patient aux urgences
+Temps attente urgences, taux occupation
+Contrôle Infections
+Hygiène mains, prévention infections, réutilisation DM
+Taux conformité hygiène mains, taux infections nosocomiales
+Évaluation Risques
+Prévention chutes, prévention escarres, prévention suicide, prévention TVP
+Taux chutes/1000j, taux escarres, % évaluations risque complètes
+
+8 Domaines d’Évaluation Organisationnelle
+Domaine
+Code
+Périmètre
+Leadership
+LD
+Stratégie, planification, gestion des ressources
+Gouvernance
+GOV
+Structure de gouvernance, responsabilité qualité, transparence
+Ressources Humaines
+HR
+Recrutement, formation, évaluation, bien-être au travail
+Prévention Infections
+IPAC
+Protocoles hygiène, surveillance, formation, audits
+Gestion Médicaments
+MM
+Circuit médicament, stockage, dispensation, réconciliation
+Éducation Patient
+PFE
+Information patient, consentement, éducation thérapeutique
+Flux Patient
+PF
+Admissions, transferts, sorties, gestion lits
+Amélioration Qualité
+QI
+Indicateurs qualité, analyse causes, plans amélioration
+
+2.2 JCI — Joint Commission International (8ème Édition, 2025)
+La 8ème édition JCI est structurée en 5 sections principales. Le nombre de standards a été réduit de 10–15% par consolidation. Nouveautés majeures : chapitre Sécurité Patient dédié, chapitre Technologie de Santé (DSE, télésanté, cybersécurité), et chapitre Impact Sanitaire Mondial (durabilité environnementale).
+Sections et Chapitres JCI
+Section
+Chapitres
+KPIs Dashboard
+1. Participation à l’accréditation (APR)
+Soumission données, rapports, conformité continue
+% documents soumis à temps
+2. Soins Centrés Patient
+IPSG (6 objectifs sécurité), ACC, PCC, ASC, MMU, AOP, COP, PFE, PFR
+Score IPSG, taux événements sentinelles
+3. Gestion Organisation
+QPS, PCI, GLD, FMS, SQE, MOI, HIT, PS
+Score QPS, taux non-conformités
+4. Impact Sanitaire Mondial (GHI)
+Durabilité environnementale (nouveau)
+Score GHI, indicateurs écologiques
+5. Centre Médical Académique
+MPE, HRP (éducation médicale, recherche)
+Nb publications, essais cliniques actifs
+
+6 Objectifs Internationaux de Sécurité Patient (IPSG)
+IPSG
+Objectif
+Indicateur mesurable
+IPSG.1
+Identification correcte des patients
+% patients avec 2 identifiants vérifiés
+IPSG.2
+Communication efficace
+% ordres verbaux relus et confirmés
+IPSG.3
+Sécurité médicaments haute alerte
+% médicaments haute alerte étiquetés conformément
+IPSG.4
+Sécurité chirurgicale
+% checklist chirurgicale complète
+IPSG.5
+Réduction infections associées soins
+Taux conformité hygiène mains
+IPSG.6
+Réduction risque chutes
+Taux chutes / 1000 jours-patient
+
+2.3 HAS — Certification V2025 (6ème Cycle)
+Le référentiel HAS V2025 est structuré en 3 chapitres, 12 objectifs (4 par chapitre), avec des critères déclinés en 4 à 6 éléments d’évaluation. Le nombre de critères impératifs passe de 17 à 21. Les 5 méthodes d’évaluation (patient traceur, parcours traceur, traceur ciblé, audit système, observation) sont maintenues.
+Structure du Référentiel
+Chapitre
+Objectifs
+Critères clés
+Ch.1 — Le Patient
+4 objectifs : droits, parcours, information, expérience
+Intimité/dignité, consentement, douleur, sortie
+Ch.2 — Les Équipes de Soins
+4 objectifs : pratiques, médicaments, risques, secteurs critiques
+Checklist bloc, antibiotiques, chutes, infections
+Ch.3 — L’Établissement
+4 objectifs : gouvernance, RH, territoires, SI/numérique
+Qualité de vie travail, cybersécurité, écologie
+
+21 Critères Impératifs (extrait)
+Critère
+Intitulé
+Domaine équivalent AC/JCI
+1.1-01
+Respect intimité et dignité
+PFR (JCI) / PFE (AC)
+2.2-12
+Checklist bloc opératoire
+IPSG.4 (JCI) / Communication (AC)
+2.3-01
+Identification patient
+IPSG.1 (JCI) / Communication (AC)
+2.3-03
+Prévention infections
+IPSG.5 (JCI) / IPAC (AC)
+2.4-02
+Pertinence prescriptions antibiotiques
+MMU (JCI) / MM (AC)
+3.3-05
+Prévention transferts évitables personnes âgées
+PF (AC) / ACC (JCI)
+3.6-02
+Maîtrise risques sécurité numérique
+HIT (JCI) / nouveau
+
+2.4 Matrice de Correspondance Inter-Référentiels
+Le dashboard doit permettre de visualiser les correspondances entre les trois référentiels. Un standard conforme dans un cadre peut couvrir partiellement un standard dans un autre. Cette matrice est la clé de voûte du produit — elle permet à un hôpital visant plusieurs accréditations de mutualiser ses efforts.
+Thématique
+Accreditation Canada
+JCI 8th Ed.
+HAS V2025
+Identification patient
+ROP Communication
+IPSG.1
+Critère 2.3-01 (impératif)
+Hygiène des mains
+ROP Contrôle Infections
+IPSG.5 + PCI
+Critère 2.3-03 (impératif)
+Checklist chirurgicale
+ROP Communication
+IPSG.4
+Critère 2.2-12 (impératif)
+Réconciliation médicaments
+ROP Communication
+MMU.7
+Critère 2.4-xx
+Prévention chutes
+ROP Évaluation Risques
+IPSG.6
+Critère 2.3-xx
+Gestion médicaments haute alerte
+ROP Médicaments
+IPSG.3 + MMU
+Critère 2.4-xx
+Déclaration incidents
+ROP Culture Sécurité
+QPS + PS
+Critère 3.1-xx
+Gouvernance qualité
+GOV + QI
+GLD + QPS
+Chapitre 3 (gouvernance)
+Cybersécurité / SI
+N/A
+HIT (nouveau ch.)
+Critère 3.6-02 (impératif)
+Durabilité environnementale
+N/A
+GHI (nouveau ch.)
+Critère 3.4-02/03
+
+3. Modèle de Données
+3.1 Schéma de Base de Données
+Le modèle relationnel est conçu pour supporter les trois référentiels simultanément, avec un système de mapping inter-référentiels. Base de données cible : PostgreSQL (compatible avec Antigravity).
+Tables Principales
+Table
+Colonnes clés
+Relations
+frameworks
+id, name (AC/JCI/HAS), version, active
+1:N → domains
+domains
+id, framework_id, code, name, description, weight
+1:N → standards
+standards
+id, domain_id, code, title, description, priority (ROP/high/normal/imperatif)
+1:N → criteria
+criteria
+id, standard_id, code, description, evidence_required
+N:N → criteria_mappings
+criteria_mappings
+id, criteria_id_source, criteria_id_target, mapping_type (full/partial)
+Correspondances inter-référentiels
+assessments
+id, criteria_id, department_id, status (conforme/partiel/non-conforme/NA), assessed_by, assessed_at, evidence_ids
+1:N → evidence_files
+evidence_files
+id, assessment_id, file_path, file_type, uploaded_by, uploaded_at, validated
+Preuves documentaires
+departments
+id, name, code, head_name, head_email
+1:N → assessments
+action_plans
+id, assessment_id, description, responsible, deadline, status, priority
+Plans correctifs
+kpi_snapshots
+id, kpi_code, value, measured_at, department_id, source (excel/his/manual)
+Historique KPIs
+data_imports
+id, source_type (excel/his), file_name, imported_by, imported_at, rows_processed, errors
+Traçabilité imports
+users
+id, name, email, role (admin/quality/dept_head/viewer), department_id
+Accès et permissions
+
+3.2 Sources de Données et Intégrations
+Import Excel/CSV
+Le système accepte des fichiers Excel structurés avec des templates prédéfinis. Chaque template correspond à un type de données (audits IPAC, incidents, médicaments, etc.). Le système valide le format, détecte les erreurs, et propose une prévisualisation avant import.
+Template Excel
+Colonnes attendues
+Fréquence import
+audit_ipac.xlsx
+date, service, item_audit, conforme (O/N), observateur, commentaire
+Mensuel
+incidents.xlsx
+date, type, gravité, service, description, action_corrective, statut
+Continu
+medications.xlsx
+date, type_erreur, médicament, service, patient_id_anon, issue, résolution
+Mensuel
+hand_hygiene.xlsx
+date, service, observations, conformes, taux
+Hebdomadaire
+surgical_checklist.xlsx
+date, salle, chirurgien, checklist_complete (O/N), items_manquants
+Par intervention
+patient_falls.xlsx
+date, service, patient_id_anon, gravité, évaluation_risque_faite (O/N)
+Continu
+nosocomial_infections.xlsx
+date, type_infection, service, germe, lié_dispositif (O/N)
+Mensuel
+satisfaction_patient.xlsx
+date, service, score_global, commentaires, recommandation
+Trimestriel
+
+Connexion HIS (Hospital Information System)
+L’intégration HIS se fait via une API REST ou un connecteur HL7 FHIR R4. Le système interroge le HIS à intervalle régulier (configurable : 15min à 24h) pour extraire les données opérationnelles. Aucune donnée patient nominative n’est stockée — seuls les agrégats et indicateurs anonymisés sont importés.
+Source HIS
+Données extraites
+Standard
+KPIs alimentés
+Admissions/Sorties (ADT)
+Volumes, DMS, taux occupation
+HL7 ADT / FHIR Encounter
+Flux patient, occupation lits
+Bloc Opératoire
+Interventions, durées, annulations
+FHIR Procedure
+Utilisation bloc, checklist
+Pharmacie
+Prescriptions, dispensations, erreurs
+FHIR MedicationRequest
+Erreurs méd., réconciliation
+Laboratoire
+Résultats bactério, antibiogrammes
+FHIR Observation / HL7 ORU
+Infections, résistances
+Urgences
+Passages, temps attente, orientation
+FHIR Encounter
+Temps attente, flux
+DPI (Dossier Patient)
+Complétude dossier, consentements
+FHIR Patient / DocumentRef
+Identification, consentement
+
+4. Catalogue des KPIs
+Chaque KPI est défini avec : un code unique, une formule de calcul, un seuil de conformité (vert/orange/rouge), une source de données, et un mapping vers les référentiels concernés. Les seuils sont basés sur les benchmarks internationaux et les exigences spécifiques de chaque cadre d’accréditation.
+4.1 KPIs Infection Prevention & Control (IPAC)
+Code
+KPI
+Formule
+Vert
+Orange
+Rouge
+Référentiels
+IPAC-01
+Taux conformité hygiène mains
+Observations conformes / Total observations × 100
+≥ 85%
+70–84%
+< 70%
+AC + JCI + HAS
+IPAC-02
+Taux infections nosocomiales
+Infections / 1000 jours-patient
+≤ 3.0
+3.1–5.0
+> 5.0
+AC + JCI + HAS
+IPAC-03
+Taux infections site opératoire
+ISO / Total interventions × 100
+≤ 1.5%
+1.6–3.0%
+> 3.0%
+AC + JCI + HAS
+IPAC-04
+Taux infections liées cathéters
+CLABSI / 1000 jours-cathéter
+≤ 1.0
+1.1–2.5
+> 2.5
+AC + JCI
+IPAC-05
+% personnel formé PCI
+Personnel formé / Total × 100
+≥ 95%
+80–94%
+< 80%
+AC + JCI + HAS
+IPAC-06
+Délai signalement épidémie
+Heures entre détection et signalement
+≤ 2h
+2–12h
+> 12h
+AC + JCI
+
+4.2 KPIs Sécurité Patient
+Code
+KPI
+Formule
+Vert
+Orange
+Rouge
+Référentiels
+PS-01
+Taux identification patient (2 ID)
+Vérifications conformes / Total × 100
+≥ 98%
+90–97%
+< 90%
+AC + JCI + HAS
+PS-02
+Taux checklist chirurgicale complète
+Checklists complètes / Total interventions × 100
+≥ 95%
+85–94%
+< 85%
+AC + JCI + HAS
+PS-03
+Taux chutes / 1000 jours-patient
+Chutes / 1000 jours-patient
+≤ 3.0
+3.1–6.0
+> 6.0
+AC + JCI + HAS
+PS-04
+Taux déclaration incidents
+Incidents déclarés / Incidents estimés × 100
+≥ 80%
+50–79%
+< 50%
+AC + JCI + HAS
+PS-05
+Taux erreurs médicamenteuses
+Erreurs / 1000 prescriptions
+≤ 1.0
+1.1–3.0
+> 3.0
+AC + JCI + HAS
+PS-06
+Taux réconciliation méd. à l’admission
+Réconciliations / Admissions × 100
+≥ 90%
+70–89%
+< 70%
+AC + JCI + HAS
+PS-07
+Événements sentinelles
+Nombre absolu / trimestre
+0
+1
+≥ 2
+JCI
+
+4.3 KPIs Opérationnels
+Code
+KPI
+Formule
+Vert
+Orange
+Rouge
+Référentiels
+OP-01
+Taux occupation lits
+Lits occupés / Lits disponibles × 100
+75–90%
+91–95% ou <74%
+> 95% ou < 60%
+AC + JCI
+OP-02
+DMS (durée moyenne séjour)
+Total jours / Total patients
+≤ benchmark spécialité
++10–20%
++>20%
+AC + JCI + HAS
+OP-03
+Taux annulation chirurgicale
+Annulations / Programmées × 100
+≤ 2%
+2.1–5%
+> 5%
+AC
+OP-04
+Utilisation bloc opératoire
+Temps utilisé / Temps disponible × 100
+≥ 85%
+70–84%
+< 70%
+AC
+OP-05
+Temps attente urgences (médian)
+Médiane temps entrée → PEC
+≤ 30 min
+31–60 min
+> 60 min
+AC + JCI + HAS
+OP-06
+Satisfaction patient (score global)
+Score moyen enquête / 10
+≥ 8.0
+6.0–7.9
+< 6.0
+AC + JCI + HAS
+
+4.4 KPIs Gouvernance & Qualité
+Code
+KPI
+Formule
+Vert
+Orange
+Rouge
+Référentiels
+GQ-01
+% standards conformes (par référentiel)
+Standards conformes / Total standards × 100
+≥ 90%
+70–89%
+< 70%
+AC + JCI + HAS
+GQ-02
+% ROPs/impératifs conformes
+ROPs conformes / Total ROPs × 100
+100%
+80–99%
+< 80%
+AC + JCI + HAS
+GQ-03
+% actions correctives dans les délais
+Fermées à temps / Total × 100
+≥ 85%
+60–84%
+< 60%
+AC + JCI + HAS
+GQ-04
+% personnel formé qualité/sécurité
+Formés / Total × 100
+≥ 90%
+70–89%
+< 70%
+AC + JCI + HAS
+GQ-05
+Délai moyen résolution non-conformité
+Moyenne jours détection → clôture
+≤ 30j
+31–60j
+> 60j
+AC + JCI + HAS
+
+5. Architecture Technique
+5.1 Stack Technologique (Antigravity)
+Couche
+Technologie
+Justification
+Frontend
+React + TypeScript + Tailwind CSS
+Composants réutilisables, typage fort, design rapide
+Graphiques
+Recharts + D3.js
+Graphiques interactifs, radar charts, heatmaps
+Backend
+Node.js + Express (ou Hono)
+API REST, léger, compatible Antigravity
+Base de données
+PostgreSQL
+Relationnel, JSON support, robuste
+ORM
+Drizzle ORM (ou Prisma)
+Type-safe, migrations, compatible Antigravity
+Auth
+JWT + bcrypt
+Authentification sécurisée, rôles et permissions
+File Processing
+SheetJS (xlsx) + Papaparse (csv)
+Import/validation fichiers Excel et CSV
+IA (optionnel)
+Gemini API (Google)
+Génération rapports, analyse gaps, recommandations
+Notifications
+WhatsApp Business API + Email
+Alertes directeur et chefs de département
+Hébergement
+Serveur interne CHU ou Google Cloud (Maroc)
+Souveraineté données, conformité Loi 09-08
+
+5.2 Architecture des Pages
+Le dashboard est organisé en 8 pages principales, chacune avec des composants spécifiques :
+Page
+URL
+Composants clés
+Rôles accès
+Vue d’ensemble
+/dashboard
+Score global par référentiel (3 jauges), tendance 12 mois, alertes actives, top 5 non-conformités
+Tous
+Référentiel détaillé
+/framework/:id
+Radar chart par domaine, liste standards avec statut couleur, filtre par département
+Tous
+KPIs temps réel
+/kpis
+Grille de KPIs avec sparklines, filtres (domaine, département, période), export PDF
+Qualité + Admin
+Import Données
+/import
+Upload drag&drop, sélection template, prévisualisation, validation, historique imports
+Qualité + Admin
+Plans d’Action
+/actions
+Kanban (A faire / En cours / Fait), filtres urgence, assignation, délais
+Qualité + Départements
+Rapports
+/reports
+Génération PDF/DOCX formaté accréditation, historique, export
+Qualité + Admin
+Matrice Correspondances
+/mapping
+Tableau croisé inter-référentiels, recherche, filtres
+Qualité
+Administration
+/admin
+Gestion utilisateurs, départements, connexions HIS, paramètres
+Admin
+
+6. Wireframes et Spécifications UI
+6.1 Page Principale — Vue d’Ensemble
+La page principale est divisée en 4 zones :
+Zone 1 (haut) : 3 jauges circulaires côte à côte — score global Accreditation Canada (ex: 72%), JCI (ex: 68%), HAS (ex: 81%). Chaque jauge est colorée selon le seuil (vert/orange/rouge). Un clic ouvre la page détaillée du référentiel.
+Zone 2 (milieu gauche) : Graphique en courbe — évolution du score global sur 12 mois, avec les 3 référentiels superposés. Permet de visualiser la tendance et l’impact des actions correctives.
+Zone 3 (milieu droite) : Tableau des alertes actives — les 10 non-conformités les plus critiques, triées par priorité. Chaque ligne montre : domaine, standard, département, délai dépassé (en jours), responsable. Code couleur rouge/orange.
+Zone 4 (bas) : Heatmap départements × domaines — une matrice montrant le score de conformité de chaque département sur chaque domaine. Permet d’identifier visuellement les zones faibles.
+6.2 Page Référentiel Détaillé
+Sélection du référentiel via onglets (AC | JCI | HAS). Pour chaque référentiel :
+Radar chart : un axe par domaine, score 0–100%. Permet la comparaison visuelle immédiate des forces et faiblesses.
+Liste déroulante par domaine : chaque domaine s’ouvre pour révéler ses standards. Chaque standard affiche : statut (conforme/partiel/non-conforme/NA), dernière évaluation, département responsable, nombre de preuves téléchargées.
+Filtre par département : permet à un chef de service de voir uniquement ce qui le concerne.
+Bouton « Voir correspondances » : pour chaque standard, affiche les standards équivalents dans les autres référentiels.
+6.3 Page Import Données
+Le flux d’import est conçu pour minimiser les erreurs :
+Étape 1 : Sélection du template (dropdown avec les 8 templates définis). Le système affiche le format attendu et un lien de téléchargement du template vide.
+Étape 2 : Upload du fichier (drag & drop ou sélecteur). Validation immédiate : format, colonnes manquantes, types de données.
+Étape 3 : Prévisualisation des 10 premières lignes avec surlignage des erreurs en rouge. L’utilisateur peut corriger ou rejeter.
+Étape 4 : Confirmation et import. Le système affiche le nombre de lignes traitées, les KPIs mis à jour, et les alertes déclenchées.
+6.4 Page KPIs Temps Réel
+Grille de cartes KPI, chacune affichant :
+Nom du KPI et code
+Valeur actuelle avec code couleur (vert/orange/rouge)
+Sparkline des 6 derniers mois
+Tendance (↑ ↓ →) et variation en %
+Clic → modal avec historique complet, graphique détaillé, et lien vers les standards concernés
+
+7. Spécification API
+7.1 Endpoints Principaux
+Méthode
+Endpoint
+Description
+Auth
+GET
+/api/dashboard/overview
+Scores globaux, alertes, tendances
+Viewer+
+GET
+/api/frameworks/:id/domains
+Domaines et scores par référentiel
+Viewer+
+GET
+/api/frameworks/:id/standards
+Standards avec statuts, filtres dept
+Viewer+
+GET
+/api/kpis?domain=&dept=&period=
+KPIs filtrés avec historique
+Quality+
+POST
+/api/import/upload
+Upload fichier Excel/CSV
+Quality+
+POST
+/api/import/validate
+Validation pré-import
+Quality+
+POST
+/api/import/confirm
+Confirmation et traitement import
+Quality+
+GET
+/api/assessments?standard=&dept=
+Evaluations avec preuves
+Quality+
+PUT
+/api/assessments/:id
+Mise à jour statut évaluation
+Quality+
+POST
+/api/assessments/:id/evidence
+Upload preuve documentaire
+Quality+
+GET
+/api/actions?status=&dept=&priority=
+Plans d’action filtrés
+DeptHead+
+PUT
+/api/actions/:id
+Mise à jour action (statut, assignation)
+DeptHead+
+GET
+/api/reports/generate?framework=&format=
+Générer rapport PDF/DOCX
+Quality+
+GET
+/api/mapping?criteria=&target_fw=
+Correspondances inter-référentiels
+Quality+
+GET
+/api/his/status
+Statut connexion HIS
+Admin
+POST
+/api/his/sync
+Déclencher sync HIS manuelle
+Admin
+
+8. Sécurité et Conformité Réglementaire
+8.1 Principes Non-Négociables
+Aucune donnée patient nominative ne transite dans le système. Tous les identifiants sont anonymisés avant import.
+Hébergement sur serveur interne CHU UM6SS ou cloud privé marocain. Aucune donnée ne quitte le territoire.
+Conformité Loi 09-08 (CNDP) : déclaration préalable, consentement, droit d’accès, droit de rectification.
+Chiffrement en transit (TLS 1.3) et au repos (AES-256).
+Authentification JWT avec refresh tokens, expiration 24h, invalidation sur déconnexion.
+Rôles et permissions : Admin, Quality, DeptHead, Viewer. Principe du moindre privilège.
+Piste d’audit complète : chaque action (import, évaluation, modification) est tracée avec horodatage, utilisateur, IP.
+Sauvegardes automatisées quotidiennes de la base de données.
+8.2 Gestion des Appels API Externes
+Si l’IA (Gemini) est utilisée pour générer des recommandations, seules des données agrégées et anonymisées sont envoyées. Les prompts ne contiennent jamais de noms de patients, de numéros de dossiers, ou de données identifiantes. À terme, l’objectif est de migrer vers un modèle local (MedGemma 27B) pour éliminer toute dépendance externe.
+
+9. Plan d’Implémentation
+9.1 Phases de Développement
+Phase
+Durée
+Livrables
+Dépendances
+Phase 0 : Setup
+Semaine 1
+Projet Antigravity, DB schema, auth, CI/CD
+Accès Antigravity
+Phase 1 : Core Dashboard
+Semaines 2–4
+Vue d’ensemble, 3 jauges, KPIs statiques, import Excel (2 templates)
+Schema DB validé
+Phase 2 : Référentiels
+Semaines 4–6
+3 référentiels complets chargés, radar charts, liste standards, matrice correspondances
+Données référentiels validées
+Phase 3 : Import Complet
+Semaines 6–8
+8 templates Excel, validation, prévisualisation, historique, KPIs auto-calculés
+Templates validés avec équipe qualité
+Phase 4 : Actions & Rapports
+Semaines 8–10
+Kanban actions, génération rapports PDF, notifications email
+Aucune
+Phase 5 : Intégration HIS
+Semaines 10–14
+Connecteur FHIR/HL7, sync automatique, KPIs temps réel
+Accès API HIS (DSI)
+Phase 6 : IA & WhatsApp
+Semaines 14–16
+Génération recommandations IA, alertes WhatsApp directeur
+API Gemini + WhatsApp Business
+
+9.2 Structure des Fichiers (Antigravity)
+Organisation recommandée du workspace Antigravity :
+Dossier/Fichier
+Contenu
+/src/app/
+Pages Next.js / Routes React
+/src/components/dashboard/
+ScoreGauge, RadarChart, KpiCard, AlertTable, Heatmap
+/src/components/import/
+FileUpload, TemplateSelector, DataPreview, ValidationErrors
+/src/components/framework/
+DomainAccordion, StandardRow, StatusBadge, MappingModal
+/src/components/actions/
+KanbanBoard, ActionCard, AssigneeSelector
+/src/components/reports/
+ReportGenerator, ReportPreview
+/src/lib/db/
+schema.ts (Drizzle), migrations/, seed/
+/src/lib/api/
+Routes API, middleware auth, validators
+/src/lib/import/
+excel-parser.ts, csv-parser.ts, validators/, templates/
+/src/lib/his/
+fhir-client.ts, hl7-parser.ts, sync-scheduler.ts
+/src/lib/kpi/
+calculator.ts, thresholds.ts, aggregator.ts
+/src/data/
+frameworks/ (AC.json, JCI.json, HAS.json), mappings.json
+/public/templates/
+8 fichiers Excel templates téléchargeables
+
+10. Données de Référence à Précharger
+Le système doit être livré avec les référentiels préchargés. Voici le volume de données à intégrer dans les fichiers JSON de seed :
+Référentiel
+Domaines
+Standards (approx.)
+ROPs / Impératifs
+Source officielle
+Accreditation Canada Diamond
+8 domaines + 6 catégories ROP
+~1166 critères (Qmentum v4)
+25 ROPs en 6 catégories
+accreditation.ca / store
+JCI 8th Edition
+5 sections, ~15 chapitres
+~300 standards, ~1200 MEs
+6 IPSG + chapitres PS, HIT, GHI
+store.jointcommissioninternational.org
+HAS V2025
+3 chapitres, 12 objectifs
+~113 critères (92 standards + 21 impératifs)
+21 critères impératifs
+has-sante.fr / Calista
+
+Priorité de chargement : commencer par Accreditation Canada (cas d’usage principal CHU UM6SS), puis JCI, puis HAS. Les mappings inter-référentiels sont ajoutés progressivement.
+
+Fin du Document
+Ce document sert de blueprint pour le développement dans Google Antigravity.
+Dr. Rida Akodad — rida.akodad@gmail.com

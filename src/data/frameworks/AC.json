@@ -1,0 +1,169 @@
+{
+  "id": "AC",
+  "name": "Accreditation Canada Diamond",
+  "version": "Qmentum Global v4",
+  "active": true,
+  "domains": [
+    {
+      "id": "AC-LD",
+      "code": "LD",
+      "name": "Leadership",
+      "description": "Stratégie, planification, gestion des ressources",
+      "weight": 12,
+      "standards": [
+        { "id": "AC-LD-01", "code": "LD.1", "title": "Planification stratégique documentée", "description": "L'organisation dispose d'un plan stratégique formalisé, approuvé par le conseil d'administration, avec des objectifs mesurables.", "priority": "high" },
+        { "id": "AC-LD-02", "code": "LD.2", "title": "Gouvernance et responsabilité qualité", "description": "Le leadership démontre un engagement visible envers la qualité et la sécurité.", "priority": "high" },
+        { "id": "AC-LD-03", "code": "LD.3", "title": "Gestion des ressources financières", "description": "Un processus formel de budget et d'allocation des ressources est en place.", "priority": "normal" },
+        { "id": "AC-LD-04", "code": "LD.4", "title": "Culture de la sécurité", "description": "L'organisation mesure et améliore activement la culture de sécurité au sein du personnel.", "priority": "high" },
+        { "id": "AC-LD-05", "code": "LD.5", "title": "Partenariats et collaboration", "description": "Des partenariats avec d'autres organismes de santé sont établis pour améliorer les services.", "priority": "normal" }
+      ]
+    },
+    {
+      "id": "AC-GOV",
+      "code": "GOV",
+      "name": "Gouvernance",
+      "description": "Structure de gouvernance, responsabilité qualité, transparence",
+      "weight": 10,
+      "standards": [
+        { "id": "AC-GOV-01", "code": "GOV.1", "title": "Structure de gouvernance formalisée", "description": "Le conseil d'administration a des responsabilités clairement définies pour la qualité.", "priority": "high" },
+        { "id": "AC-GOV-02", "code": "GOV.2", "title": "Rapports de qualité au conseil", "description": "Des rapports de qualité réguliers sont présentés au conseil et documentés.", "priority": "ROP" },
+        { "id": "AC-GOV-03", "code": "GOV.3", "title": "Gestion des conflits d'intérêts", "description": "Une politique de gestion des conflits d'intérêts est en place et appliquée.", "priority": "normal" },
+        { "id": "AC-GOV-04", "code": "GOV.4", "title": "Divulgation des incidents aux patients", "description": "L'organisation divulgue de manière proactive les incidents aux patients affectés.", "priority": "ROP" }
+      ]
+    },
+    {
+      "id": "AC-HR",
+      "code": "HR",
+      "name": "Ressources Humaines",
+      "description": "Recrutement, formation, évaluation, bien-être au travail",
+      "weight": 11,
+      "standards": [
+        { "id": "AC-HR-01", "code": "HR.1", "title": "Planification des effectifs", "description": "L'organisation planifie ses ressources humaines pour répondre aux besoins des patients.", "priority": "high" },
+        { "id": "AC-HR-02", "code": "HR.2", "title": "Vérification des compétences du personnel", "description": "Les qualifications et compétences de tout le personnel clinique sont vérifiées avant embauche.", "priority": "high" },
+        { "id": "AC-HR-03", "code": "HR.3", "title": "Formation continue et développement", "description": "Un programme structuré de formation continue est disponible pour tout le personnel.", "priority": "normal" },
+        { "id": "AC-HR-04", "code": "HR.4", "title": "Évaluation annuelle du personnel", "description": "Des évaluations annuelles de performance sont conduites pour tout le personnel.", "priority": "normal" },
+        { "id": "AC-HR-05", "code": "HR.5", "title": "Programme de bien-être au travail", "description": "Un programme de soutien au bien-être du personnel est disponible et utilisé.", "priority": "high" }
+      ]
+    },
+    {
+      "id": "AC-IPAC",
+      "code": "IPAC",
+      "name": "Prévention des Infections",
+      "description": "Protocoles hygiène, surveillance, formation, audits",
+      "weight": 14,
+      "standards": [
+        { "id": "AC-IPAC-01", "code": "IPAC.1", "title": "Programme IPAC formalisé", "description": "Un programme de prévention et contrôle des infections est documenté et opérationnel.", "priority": "high" },
+        { "id": "AC-IPAC-02", "code": "IPAC.2", "title": "Hygiène des mains", "description": "Un programme d'hygiène des mains basé sur les 5 moments de l'OMS est en place.", "priority": "ROP" },
+        { "id": "AC-IPAC-03", "code": "IPAC.3", "title": "Surveillance des infections nosocomiales", "description": "Un système actif de surveillance des infections associées aux soins est opérationnel.", "priority": "high" },
+        { "id": "AC-IPAC-04", "code": "IPAC.4", "title": "Précautions standards et additionnelles", "description": "Les précautions standards et additionnelles sont appliquées de manière cohérente.", "priority": "high" },
+        { "id": "AC-IPAC-05", "code": "IPAC.5", "title": "Réutilisation des dispositifs médicaux", "description": "Des procédures sécurisées régissent la réutilisation des dispositifs médicaux.", "priority": "ROP" }
+      ]
+    },
+    {
+      "id": "AC-MM",
+      "code": "MM",
+      "name": "Gestion des Médicaments",
+      "description": "Circuit médicament, stockage, dispensation, réconciliation",
+      "weight": 13,
+      "standards": [
+        { "id": "AC-MM-01", "code": "MM.1", "title": "Médicaments à haut risque sécurisés", "description": "Les médicaments à haut risque (héparine, électrolytes concentrés) sont stockés et gérés séparément.", "priority": "ROP" },
+        { "id": "AC-MM-02", "code": "MM.2", "title": "Réconciliation médicamenteuse", "description": "La réconciliation médicamenteuse est effectuée aux transitions de soins.", "priority": "ROP" },
+        { "id": "AC-MM-03", "code": "MM.3", "title": "Gestion des antimicrobiens", "description": "Un programme de gestion des antimicrobiens (antibiothérapie) est en place.", "priority": "high" },
+        { "id": "AC-MM-04", "code": "MM.4", "title": "Pompes de perfusion sécurisées", "description": "Des pompes de perfusion avec bibliothèques de médicaments sont utilisées.", "priority": "ROP" },
+        { "id": "AC-MM-05", "code": "MM.5", "title": "Gestion des narcotiques", "description": "Les opioïdes et narcotiques sont gérés avec un double contrôle.", "priority": "ROP" }
+      ]
+    },
+    {
+      "id": "AC-PFE",
+      "code": "PFE",
+      "name": "Éducation Patient",
+      "description": "Information patient, consentement, éducation thérapeutique",
+      "weight": 9,
+      "standards": [
+        { "id": "AC-PFE-01", "code": "PFE.1", "title": "Évaluation des besoins éducatifs", "description": "Les besoins éducatifs des patients sont évalués à l'admission.", "priority": "normal" },
+        { "id": "AC-PFE-02", "code": "PFE.2", "title": "Consentement éclairé", "description": "Un processus formel de consentement éclairé est documenté et appliqué.", "priority": "high" },
+        { "id": "AC-PFE-03", "code": "PFE.3", "title": "Information à la sortie", "description": "Les patients reçoivent des informations complètes à la sortie.", "priority": "normal" }
+      ]
+    },
+    {
+      "id": "AC-PF",
+      "code": "PF",
+      "name": "Flux Patient",
+      "description": "Admissions, transferts, sorties, gestion lits",
+      "weight": 10,
+      "standards": [
+        { "id": "AC-PF-01", "code": "PF.1", "title": "Gestion de la capacité d'accueil", "description": "Un processus de gestion des lits assure l'optimisation des admissions et sorties.", "priority": "high" },
+        { "id": "AC-PF-02", "code": "PF.2", "title": "Sécurité aux urgences", "description": "Un système de triage et de prise en charge sécurisée aux urgences est en place.", "priority": "ROP" },
+        { "id": "AC-PF-03", "code": "PF.3", "title": "Planification des sorties", "description": "Les sorties sont planifiées dès l'admission pour réduire les délais.", "priority": "normal" }
+      ]
+    },
+    {
+      "id": "AC-QI",
+      "code": "QI",
+      "name": "Amélioration Qualité",
+      "description": "Indicateurs qualité, analyse causes, plans amélioration",
+      "weight": 11,
+      "standards": [
+        { "id": "AC-QI-01", "code": "QI.1", "title": "Programme qualité structuré", "description": "Un programme formel d'amélioration continue de la qualité est documenté et actif.", "priority": "high" },
+        { "id": "AC-QI-02", "code": "QI.2", "title": "Analyse des causes profondes", "description": "Des analyses de causes profondes sont réalisées pour tous les événements indésirables graves.", "priority": "high" },
+        { "id": "AC-QI-03", "code": "QI.3", "title": "Tableau de bord qualité", "description": "Un tableau de bord d'indicateurs qualité est communiqué régulièrement à tous les niveaux.", "priority": "normal" },
+        { "id": "AC-QI-04", "code": "QI.4", "title": "Benchmarking externe", "description": "L'organisation compare ses indicateurs à des benchmarks nationaux et internationaux.", "priority": "normal" }
+      ]
+    }
+  ],
+  "rops": [
+    {
+      "category": "Culture de Sécurité",
+      "items": [
+        { "code": "ROP-CS-01", "title": "Rapports trimestriels qualité au conseil", "priority": "ROP" },
+        { "code": "ROP-CS-02", "title": "Divulgation des incidents aux patients", "priority": "ROP" },
+        { "code": "ROP-CS-03", "title": "Formation culture sécurité obligatoire", "priority": "ROP" },
+        { "code": "ROP-CS-04", "title": "Enquête culture sécurité annuelle", "priority": "ROP" }
+      ]
+    },
+    {
+      "category": "Communication",
+      "items": [
+        { "code": "ROP-COM-01", "title": "Identification du patient avec 2 identifiants", "priority": "ROP" },
+        { "code": "ROP-COM-02", "title": "Transfert d'information structuré (SBAR)", "priority": "ROP" },
+        { "code": "ROP-COM-03", "title": "Réconciliation médicamenteuse à toutes les transitions", "priority": "ROP" },
+        { "code": "ROP-COM-04", "title": "Checklist chirurgicale complète", "priority": "ROP" },
+        { "code": "ROP-COM-05", "title": "Liste des abréviations interdites", "priority": "ROP" }
+      ]
+    },
+    {
+      "category": "Médicaments",
+      "items": [
+        { "code": "ROP-MED-01", "title": "Gestion sécurisée médicaments haute alerte", "priority": "ROP" },
+        { "code": "ROP-MED-02", "title": "Gestion sécurisée électrolytes concentrés", "priority": "ROP" },
+        { "code": "ROP-MED-03", "title": "Héparine - protocoles de sécurité", "priority": "ROP" },
+        { "code": "ROP-MED-04", "title": "Pompes de perfusion — bibliothèques de doses", "priority": "ROP" },
+        { "code": "ROP-MED-05", "title": "Gestion sécurisée des narcotiques", "priority": "ROP" }
+      ]
+    },
+    {
+      "category": "Vie au Travail",
+      "items": [
+        { "code": "ROP-VT-01", "title": "Gestion des flux patients aux urgences", "priority": "ROP" },
+        { "code": "ROP-VT-02", "title": "Programme de bien-être du personnel", "priority": "ROP" }
+      ]
+    },
+    {
+      "category": "Contrôle Infections",
+      "items": [
+        { "code": "ROP-IPAC-01", "title": "Hygiène des mains — programme 5 moments OMS", "priority": "ROP" },
+        { "code": "ROP-IPAC-02", "title": "Prévention infections sites opératoires", "priority": "ROP" },
+        { "code": "ROP-IPAC-03", "title": "Politique réutilisation dispositifs médicaux", "priority": "ROP" }
+      ]
+    },
+    {
+      "category": "Évaluation Risques",
+      "items": [
+        { "code": "ROP-ER-01", "title": "Prévention des chutes — évaluation risque", "priority": "ROP" },
+        { "code": "ROP-ER-02", "title": "Prévention des escarres — protocole Braden", "priority": "ROP" },
+        { "code": "ROP-ER-03", "title": "Prévention suicide — évaluation systématique", "priority": "ROP" },
+        { "code": "ROP-ER-04", "title": "Prévention TVP — protocole anticoagulation", "priority": "ROP" }
+      ]
+    }
+  ]
+}

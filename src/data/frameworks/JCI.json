@@ -1,0 +1,126 @@
+{
+  "id": "JCI",
+  "name": "JCI — Joint Commission International",
+  "version": "8th Edition 2025",
+  "active": true,
+  "sections": [
+    {
+      "id": "JCI-APR",
+      "code": "APR",
+      "name": "Participation à l'Accréditation",
+      "description": "Soumission données, rapports, conformité continue",
+      "weight": 8,
+      "standards": [
+        { "id": "JCI-APR-01", "code": "APR.1", "title": "Soumission des données de performance", "description": "L'organisation soumet des données de performance aux délais requis.", "priority": "high" },
+        { "id": "JCI-APR-02", "code": "APR.2", "title": "Conformité continue entre visites", "description": "L'organisation maintient la conformité aux standards entre les visites d'accréditation.", "priority": "high" }
+      ]
+    },
+    {
+      "id": "JCI-IPSG",
+      "code": "IPSG",
+      "name": "Objectifs Internationaux de Sécurité Patient",
+      "description": "6 objectifs de sécurité patient internationaux",
+      "weight": 20,
+      "standards": [
+        { "id": "JCI-IPSG-01", "code": "IPSG.1", "title": "Identification correcte des patients", "description": "L'organisation élabore et applique un processus pour améliorer l'exactitude de l'identification des patients.", "priority": "high" },
+        { "id": "JCI-IPSG-02", "code": "IPSG.2", "title": "Communication efficace", "description": "L'organisation élabore et applique un processus pour améliorer l'efficacité des communications entre les soignants.", "priority": "high" },
+        { "id": "JCI-IPSG-03", "code": "IPSG.3", "title": "Sécurité des médicaments à haute vigilance", "description": "L'organisation élabore et applique un processus pour améliorer la sécurité des médicaments à haute vigilance.", "priority": "high" },
+        { "id": "JCI-IPSG-04", "code": "IPSG.4", "title": "Sécurité chirurgicale", "description": "L'organisation élabore et applique un processus pour assurer la bonne chirurgie sur le bon site.", "priority": "high" },
+        { "id": "JCI-IPSG-05", "code": "IPSG.5", "title": "Réduction des infections associées aux soins", "description": "L'organisation adopte et applique des directives fondées sur des données probantes pour hygiène des mains.", "priority": "high" },
+        { "id": "JCI-IPSG-06", "code": "IPSG.6", "title": "Réduction du risque de chute", "description": "L'organisation élabore et applique un processus pour réduire le risque de chute des patients.", "priority": "high" }
+      ]
+    },
+    {
+      "id": "JCI-ACC",
+      "code": "ACC",
+      "name": "Accès et Continuité des Soins",
+      "description": "Admission, transfert, sortie, continuité des soins",
+      "weight": 10,
+      "standards": [
+        { "id": "JCI-ACC-01", "code": "ACC.1", "title": "Triage et évaluation à l'admission", "description": "Les patients sont triés et évalués selon leurs besoins urgents dès leur arrivée.", "priority": "high" },
+        { "id": "JCI-ACC-02", "code": "ACC.2", "title": "Continuité et coordination des soins", "description": "Les soins sont coordonnés de manière continue tout au long du séjour.", "priority": "normal" },
+        { "id": "JCI-ACC-03", "code": "ACC.3", "title": "Planification de la sortie", "description": "La planification de la sortie commence dès l'admission.", "priority": "normal" }
+      ]
+    },
+    {
+      "id": "JCI-MMU",
+      "code": "MMU",
+      "name": "Gestion et Utilisation des Médicaments",
+      "description": "Circuit médicament de l'ordonnance à l'administration",
+      "weight": 12,
+      "standards": [
+        { "id": "JCI-MMU-01", "code": "MMU.1", "title": "Organisation de la pharmacie", "description": "L'organisation des services pharmaceutiques est conforme aux lois et aux bonnes pratiques.", "priority": "high" },
+        { "id": "JCI-MMU-02", "code": "MMU.2", "title": "Sélection et approvisionnement", "description": "La sélection et l'approvisionnement des médicaments sont basés sur des critères établis.", "priority": "normal" },
+        { "id": "JCI-MMU-04", "code": "MMU.4", "title": "Prescription et transcription", "description": "Les prescriptions ou ordonnances de médicaments sont complètes et exactes.", "priority": "high" },
+        { "id": "JCI-MMU-07", "code": "MMU.7", "title": "Réconciliation médicamenteuse", "description": "La réconciliation médicamenteuse est réalisée à toutes les transitions de soins.", "priority": "high" }
+      ]
+    },
+    {
+      "id": "JCI-QPS",
+      "code": "QPS",
+      "name": "Amélioration Qualité et Sécurité Patient",
+      "description": "Programme qualité et sécurité, indicateurs, analyse",
+      "weight": 14,
+      "standards": [
+        { "id": "JCI-QPS-01", "code": "QPS.1", "title": "Programme qualité et sécurité", "description": "Les leaders créent un programme de qualité et de sécurité patient intégré.", "priority": "high" },
+        { "id": "JCI-QPS-03", "code": "QPS.3", "title": "Indicateurs de performance", "description": "L'organisation sélectionne et surveille des indicateurs de performance cliniques et managériaux.", "priority": "high" },
+        { "id": "JCI-QPS-06", "code": "QPS.6", "title": "Analyse des événements sentinelles", "description": "L'organisation conduit une analyse des causes profondes pour les événements sentinelles.", "priority": "high" }
+      ]
+    },
+    {
+      "id": "JCI-PCI",
+      "code": "PCI",
+      "name": "Prévention et Contrôle des Infections",
+      "description": "Programme PCI, surveillance, mesures préventives",
+      "weight": 13,
+      "standards": [
+        { "id": "JCI-PCI-01", "code": "PCI.1", "title": "Programme PCI complet", "description": "L'organisation établit et met en œuvre un programme de prévention et contrôle des infections.", "priority": "high" },
+        { "id": "JCI-PCI-05", "code": "PCI.5", "title": "Hygiène des mains", "description": "L'organisation adopte et met en œuvre une approche d'hygiène des mains fondée sur des preuves.", "priority": "high" },
+        { "id": "JCI-PCI-07", "code": "PCI.7", "title": "Stérilisation et désinfection", "description": "La stérilisation et la désinfection des dispositifs médicaux suivent des processus validés.", "priority": "high" }
+      ]
+    },
+    {
+      "id": "JCI-GLD",
+      "code": "GLD",
+      "name": "Gouvernance, Leadership et Direction",
+      "description": "Gouvernance, leadership organisationnel, gestion des risques",
+      "weight": 10,
+      "standards": [
+        { "id": "JCI-GLD-01", "code": "GLD.1", "title": "Responsabilités de gouvernance", "description": "Le conseil d'administration est responsable des politiques et de la mission.", "priority": "high" },
+        { "id": "JCI-GLD-06", "code": "GLD.6", "title": "Culture de sécurité", "description": "Le leadership soutient une culture de sécurité dans toute l'organisation.", "priority": "high" }
+      ]
+    },
+    {
+      "id": "JCI-HIT",
+      "code": "HIT",
+      "name": "Technologie de Santé et Information",
+      "description": "DSE, télésanté, cybersécurité — nouveau chapitre 8ème éd.",
+      "weight": 8,
+      "standards": [
+        { "id": "JCI-HIT-01", "code": "HIT.1", "title": "Dossier patient électronique intégré", "description": "Le dossier patient électronique est complet, accessible et sécurisé.", "priority": "high" },
+        { "id": "JCI-HIT-03", "code": "HIT.3", "title": "Sécurité et confidentialité des données", "description": "L'organisation protège la confidentialité et la sécurité des données patients.", "priority": "high" },
+        { "id": "JCI-HIT-05", "code": "HIT.5", "title": "Cybersécurité", "description": "L'organisation dispose d'une politique et d'un plan de cybersécurité actifs.", "priority": "high" }
+      ]
+    },
+    {
+      "id": "JCI-PS",
+      "code": "PS",
+      "name": "Sécurité Patient",
+      "description": "Chapitre dédié sécurité patient — nouveau 8ème éd.",
+      "weight": 15,
+      "standards": [
+        { "id": "JCI-PS-01", "code": "PS.1", "title": "Système de signalement des incidents", "description": "Un système de signalement non punitif des incidents et des presque-accidents est en place.", "priority": "high" },
+        { "id": "JCI-PS-02", "code": "PS.2", "title": "Analyse et apprentissage", "description": "L'organisation analyse les incidents et partage les leçons apprises.", "priority": "high" },
+        { "id": "JCI-PS-03", "code": "PS.3", "title": "Événements sentinelles", "description": "L'organisation identifie et répond aux événements sentinelles selon un processus défini.", "priority": "high" }
+      ]
+    }
+  ],
+  "ipsg": [
+    { "code": "IPSG.1", "objective": "Identification correcte des patients", "indicator": "% patients avec 2 identifiants vérifiés" },
+    { "code": "IPSG.2", "objective": "Communication efficace", "indicator": "% ordres verbaux relus et confirmés" },
+    { "code": "IPSG.3", "objective": "Médicaments à haute vigilance", "indicator": "% médicaments haute alerte étiquetés conformément" },
+    { "code": "IPSG.4", "objective": "Sécurité chirurgicale", "indicator": "% checklist chirurgicale complète" },
+    { "code": "IPSG.5", "objective": "Réduction infections associées aux soins", "indicator": "Taux conformité hygiène mains" },
+    { "code": "IPSG.6", "objective": "Réduction risque de chutes", "indicator": "Taux chutes / 1000 jours-patient" }
+  ]
+}

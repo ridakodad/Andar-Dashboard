@@ -1,0 +1,75 @@
+{
+  "version": "1.0",
+  "crossReferences": [
+    {
+      "theme": "Identification du patient",
+      "AC": { "domain": "Communication", "code": "ROP-COM-01", "description": "Identification du patient avec 2 identifiants" },
+      "JCI": { "chapter": "IPSG", "code": "IPSG.1", "description": "Identification correcte des patients" },
+      "HAS": { "chapter": "CH2", "code": "2.3-01", "description": "Identification patient (impératif)", "imperatif": true },
+      "mappingType": "full"
+    },
+    {
+      "theme": "Hygiène des mains",
+      "AC": { "domain": "Contrôle Infections", "code": "ROP-IPAC-01", "description": "Programme hygiène des mains 5 moments OMS" },
+      "JCI": { "chapter": "IPSG + PCI", "code": "IPSG.5", "description": "Réduction infections associées aux soins" },
+      "HAS": { "chapter": "CH2", "code": "2.3-03", "description": "Prévention infections associées aux soins (impératif)", "imperatif": true },
+      "mappingType": "full"
+    },
+    {
+      "theme": "Checklist chirurgicale",
+      "AC": { "domain": "Communication", "code": "ROP-COM-04", "description": "Checklist chirurgicale complète" },
+      "JCI": { "chapter": "IPSG", "code": "IPSG.4", "description": "Sécurité chirurgicale" },
+      "HAS": { "chapter": "CH2", "code": "2.2-12", "description": "Checklist bloc opératoire (impératif)", "imperatif": true },
+      "mappingType": "full"
+    },
+    {
+      "theme": "Réconciliation médicaments",
+      "AC": { "domain": "Communication + Médicaments", "code": "ROP-COM-03", "description": "Réconciliation médicamenteuse à toutes les transitions" },
+      "JCI": { "chapter": "MMU", "code": "MMU.7", "description": "Réconciliation médicamenteuse" },
+      "HAS": { "chapter": "CH2", "code": "2.4-04", "description": "Réconciliation médicamenteuse" },
+      "mappingType": "partial"
+    },
+    {
+      "theme": "Prévention chutes",
+      "AC": { "domain": "Évaluation Risques", "code": "ROP-ER-01", "description": "Prévention des chutes — évaluation risque" },
+      "JCI": { "chapter": "IPSG", "code": "IPSG.6", "description": "Réduction risque de chute" },
+      "HAS": { "chapter": "CH2", "code": "2.3-02", "description": "Prévention des chutes" },
+      "mappingType": "full"
+    },
+    {
+      "theme": "Médicaments haute alerte",
+      "AC": { "domain": "Médicaments", "code": "ROP-MED-01", "description": "Gestion sécurisée médicaments haute alerte" },
+      "JCI": { "chapter": "IPSG + MMU", "code": "IPSG.3", "description": "Médicaments à haute vigilance" },
+      "HAS": { "chapter": "CH2", "code": "2.4-03", "description": "Sécurité de l'administration médicamenteuse" },
+      "mappingType": "partial"
+    },
+    {
+      "theme": "Déclaration incidents",
+      "AC": { "domain": "Culture Sécurité", "code": "ROP-CS-02", "description": "Divulgation des incidents aux patients" },
+      "JCI": { "chapter": "QPS + PS", "code": "PS.1", "description": "Système de signalement des incidents" },
+      "HAS": { "chapter": "CH3", "code": "3.1-02", "description": "Système de déclaration des EI" },
+      "mappingType": "partial"
+    },
+    {
+      "theme": "Gouvernance qualité",
+      "AC": { "domain": "GOV + QI", "code": "AC-GOV-02", "description": "Rapports de qualité au conseil" },
+      "JCI": { "chapter": "GLD + QPS", "code": "GLD.1", "description": "Responsabilités de gouvernance" },
+      "HAS": { "chapter": "CH3", "code": "3.1-01", "description": "Politique qualité et sécurité" },
+      "mappingType": "partial"
+    },
+    {
+      "theme": "Cybersécurité / SI",
+      "AC": { "domain": "N/A", "code": null, "description": "Non couvert explicitement" },
+      "JCI": { "chapter": "HIT", "code": "HIT.5", "description": "Cybersécurité — nouveau chapitre 8ème éd." },
+      "HAS": { "chapter": "CH3", "code": "3.6-02", "description": "Maîtrise risques sécurité numérique (impératif)", "imperatif": true },
+      "mappingType": "partial"
+    },
+    {
+      "theme": "Antibiotiques / Antimicrobiens",
+      "AC": { "domain": "Médicaments", "code": "AC-MM-03", "description": "Gestion des antimicrobiens" },
+      "JCI": { "chapter": "MMU", "code": "MMU.4", "description": "Prescription et transcription" },
+      "HAS": { "chapter": "CH2", "code": "2.4-02", "description": "Pertinence prescriptions antibiotiques (impératif)", "imperatif": true },
+      "mappingType": "partial"
+    }
+  ]
+}
