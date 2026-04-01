@@ -257,7 +257,7 @@ export default function FrameworkPage() {
           </p>
 
           {/* Framework tabs */}
-          <div style={{ display: "flex", gap: "0.5rem" }}>
+          <div className="flex flex-wrap gap-2">
             {(["AC", "JCI", "HAS"] as FwId[]).map(fw => {
               const m = frameworkMeta[fw];
               const active = fw === fwId;
@@ -287,9 +287,9 @@ export default function FrameworkPage() {
           </div>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "340px 1fr", gap: "1.5rem", alignItems: "start" }}>
+        <div className="flex flex-col md:grid md:grid-cols-[340px_1fr] gap-6 items-start">
           {/* Left: Radar + score */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
+          <div className="flex flex-col gap-5 w-full">
             <div className="card" style={{ textAlign: "center" }}>
               <div className="card-header">Score Global {fwId}</div>
               <div style={{ fontSize: "3rem", fontWeight: 800, color: meta.color, lineHeight: 1 }}>

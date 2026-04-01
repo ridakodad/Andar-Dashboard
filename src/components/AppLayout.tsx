@@ -1,13 +1,15 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/lib/auth-context";
 import Sidebar from "@/components/Sidebar";
+import { Menu } from "lucide-react";
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   const { isAuthenticated, isLoading } = useAuth();
   const router = useRouter();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     if (!isLoading && !isAuthenticated) router.push("/login");
@@ -33,9 +35,32 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
 
   return (
     <div style={{ display: "flex", minHeight: "100vh", background: "#F5F6FA" }}>
-      <Sidebar />
-      <main style={{ flex: 1, overflow: "auto", padding: "2rem", minWidth: 0, background: "#F5F6FA" }}>
-        {children}
+      <Sidebar isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />
+      
+      <main className="flex-1 flex flex-col min-w-0" style={{ background: "#F5F6FA" }}>
+        {/* Mobile Header (Hamburger) */}
+        <div className="md:hidden flex items-center justify-between p-4 bg-white border-b border-[#E2E5EC]">
+          <div className="flex items-center gap-2">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/huim6_icon.png" alt="HUIM6" className="h-8 w-auto object-contain" />
+            <div>
+              <div className="text-sm font-bold text-[#1A2332]">ANDAR</div>
+              <div className="text-[0.6rem] font-semibold text-[#3D6B40] tracking-widest uppercase">HUIM6</div>
+            </div>
+          </div>
+          <button 
+            onClick={() => setIsMobileMenuOpen(true)}
+            className="p-2 -mr-2 text-[#4A5568] hover:text-[#1A2332] rounded-md"
+            aria-label="Ouvrir le menu"
+          >
+            <Menu size={24} />
+          </button>
+        </div>
+
+        {/* Content Area */}
+        <div className="flex-1 overflow-auto p-4 md:p-8">
+          {children}
+        </div>
       </main>
     </div>
   );

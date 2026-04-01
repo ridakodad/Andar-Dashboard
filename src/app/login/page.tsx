@@ -33,89 +33,37 @@ export default function LoginPage() {
   };
 
   return (
-    <div style={{
-      minHeight: "100vh",
-      display: "flex",
-      background: "#FFFFFF",
-    }}>
-      {/* LEFT SIDE: 60% Background Photo */}
-      <div style={{
-        flex: "6", // 60%
-        position: "relative",
-        background: "#0C1118",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        padding: "4rem",
-        overflow: "hidden",
-      }}>
-        {/* Background Image Setup */}
-        <div style={{
-          position: "absolute", inset: 0,
-          backgroundImage: "url('/huim6_building.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        }} />
-        {/* Dark overlay for readability */}
-        <div style={{
-          position: "absolute", inset: 0,
-          background: "linear-gradient(135deg, rgba(12,17,24,0.85) 0%, rgba(12,17,24,0.4) 100%)",
-        }} />
-
-        {/* Content over image */}
-        <div style={{ position: "relative", zIndex: 10, textAlign: "center", maxWidth: "600px" }}>
-          
-          <h1 style={{
-            fontSize: "2.5rem", fontWeight: 800, color: "#FFFFFF",
-            letterSpacing: "-0.02em", lineHeight: 1.2, marginBottom: "0.5rem",
-            textShadow: "0 2px 4px rgba(0,0,0,0.5)"
-          }}>
-            Hôpital Universitaire International Mohammed VI
+    <div className="flex flex-col md:flex-row min-h-screen bg-[#F5F6FA]">
+      
+      {/* Left Photo Side (30% on mobile, 60% on desktop) */}
+      <div className="relative w-full md:w-[60%] h-[30vh] md:h-screen flex-shrink-0">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img 
+          src="/huim6_building.png" 
+          alt="HUIM6 Rabat" 
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0C1118]/90 via-[#0C1118]/70 to-[#0C1118]/40" />
+        
+        <div className="absolute inset-0 p-6 md:p-16 flex flex-col justify-end">
+          <h1 className="text-xl md:text-5xl font-black text-white leading-tight mb-1 md:mb-4 tracking-tight">
+            Hôpital Universitaire<br className="hidden md:block"/> International<br className="hidden md:block"/> Mohammed VI
           </h1>
-
-          <h2 style={{
-            fontSize: "1.5rem", fontWeight: 600, color: "#E2E5EC",
-            marginBottom: "2rem", letterSpacing: "0.05em", textTransform: "uppercase",
-            textShadow: "0 2px 4px rgba(0,0,0,0.5)"
-          }}>
+          <div className="text-[#8896A6] text-xs md:text-sm font-bold tracking-[0.2em] mb-2 md:mb-6 uppercase">
             Rabat, Maroc
-          </h2>
-
-          <div style={{
-            background: "rgba(255,255,255,0.1)", backdropFilter: "blur(10px)",
-            border: "1px solid rgba(255,255,255,0.2)",
-            padding: "1rem 2rem", borderRadius: "9999px",
-            display: "inline-block"
-          }}>
-            <p style={{
-              fontSize: "1rem", color: "#FFFFFF", fontWeight: 500, letterSpacing: "0.02em",
-            }}>
-              Plateforme de Conformité & Accréditation Hospitalière
-            </p>
+          </div>
+          <div className="inline-block bg-[#3D6B40]/20 border border-[#3D6B40]/30 backdrop-blur-md rounded-lg p-2 md:p-4 self-start">
+            <p className="text-white font-medium text-xs md:text-lg">Plateforme de Conformité & Accréditation Hospitalière</p>
           </div>
         </div>
       </div>
 
-      {/* RIGHT SIDE: 40% Login Form */}
-      <div style={{
-        flex: "4", // 40%
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        padding: "4rem",
-        minWidth: "450px",
-        background: "#FFFFFF",
-        position: "relative",
-      }}>
+      {/* Right Form Side (70% on mobile, 40% on desktop) */}
+      <div className="flex-1 w-full md:w-[40%] flex items-center justify-center p-6 md:p-12 relative overflow-y-auto">
         <div style={{ maxWidth: "400px", width: "100%", margin: "0 auto", textAlign: "center" }}>
           
           {/* Logo moved above form */}
-          <div style={{
-            marginBottom: "2rem",
-            display: "flex", justifyContent: "center"
-          }}>
+          <div style={{ marginBottom: "2rem", display: "flex", justifyContent: "center" }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/huim6_logo.png" alt="HUIM6" style={{ height: "80px", width: "auto" }} />
           </div>

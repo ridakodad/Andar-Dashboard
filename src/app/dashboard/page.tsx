@@ -60,7 +60,7 @@ export default function DashboardPage() {
         </div>
 
         {/* Stat bar */}
-        <div style={{ display: "flex", gap: "1rem", marginBottom: "1.5rem", flexWrap: "wrap" }}>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
           <StatBadge icon={Activity} label="Score Global Moyen"
             value={`${Math.round((DEMO_GLOBAL_SCORES.AC + DEMO_GLOBAL_SCORES.JCI + DEMO_GLOBAL_SCORES.HAS) / 3)}%`}
             color="#3D6B40" />
@@ -70,7 +70,7 @@ export default function DashboardPage() {
         </div>
 
         {/* Score gauges */}
-        <div style={{ display: "flex", gap: "1rem", marginBottom: "1.5rem", flexWrap: "wrap" }}>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
           <ScoreGauge label="Accreditation Canada" code="AC" score={DEMO_GLOBAL_SCORES.AC}
             onClick={() => router.push("/framework/AC")} />
           <ScoreGauge label="JCI 8ème Édition" code="JCI" score={DEMO_GLOBAL_SCORES.JCI}
@@ -80,13 +80,17 @@ export default function DashboardPage() {
         </div>
 
         {/* Trend + Alerts */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem", marginBottom: "1.5rem" }}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
           <TrendChart />
-          <AlertsTable />
+          <div className="overflow-x-auto w-full">
+            <AlertsTable />
+          </div>
         </div>
 
         {/* Heatmap */}
-        <HeatMap />
+        <div className="overflow-x-auto w-full pb-4">
+          <HeatMap />
+        </div>
       </div>
     </AppLayout>
   );

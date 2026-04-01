@@ -108,10 +108,7 @@ export default function ActionsPage() {
         </div>
 
         {/* Kanban Board */}
-        <div style={{ 
-          flex: 1, display: "grid", gridTemplateColumns: "repeat(3, 1fr)", 
-          gap: "1.5rem", minHeight: 0, overflow: "hidden" 
-        }}>
+        <div className="flex-1 flex flex-col md:grid md:grid-cols-3 gap-6 min-h-0 overflow-y-auto md:overflow-hidden">
           {columns.map(col => {
             const colActions = actions.filter(a => a.status === col.title);
             

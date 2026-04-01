@@ -29,7 +29,7 @@ const roleLabels: Record<string, string> = {
 
 // Removed SVG logo component
 
-export default function Sidebar() {
+export default function Sidebar({ isOpen, onClose }: { isOpen?: boolean; onClose?: () => void }) {
   const pathname = usePathname();
   const { user, logout } = useAuth();
 
@@ -39,15 +39,22 @@ export default function Sidebar() {
   };
 
   return (
-    <aside style={{
-      width: "244px",
-      minHeight: "100vh",
-      background: "#FFFFFF",
-      borderRight: "1px solid #E2E5EC",
-      display: "flex",
-      flexDirection: "column",
-      flexShrink: 0,
-    }}>
+    <>
+      {/* Mobile Backdrop */}
+      {isOpen && (
+        <div 
+          className="fixed inset-0 bg-[#0C1118]/40 backdrop-blur-sm z-40 md:hidden transition-opacity"
+          onClick={onClose}
+        />
+      )}
+
+      {/* Sidebar Container */}
+      <aside className={`
+        fixed md:static inset-y-0 left-0 z-50
+        w-[244px] min-h-screen bg-white border-r border-[#E2E5EC]
+        flex flex-col flex-shrink-0 transition-transform duration-300 ease-in-out
+        ${isOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}
+      `}>
       {/* Logo + Hospital name */}
       <div style={{ padding: "1.25rem", borderBottom: "1px solid #E2E5EC" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "0.625rem", marginBottom: "0.625rem" }}>
@@ -110,6 +117,7 @@ export default function Sidebar() {
               key={item.href}
               href={item.href}
               className={`sidebar-item${active ? " active" : ""}`}
+              onClick={() => { if (onClose) onClose(); }}
             >
               <Icon size={15} />
               <span>{item.label}</span>
@@ -157,5 +165,6 @@ export default function Sidebar() {
         </div>
       )}
     </aside>
+    </>
   );
 }

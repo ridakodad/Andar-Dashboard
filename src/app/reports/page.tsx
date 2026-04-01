@@ -59,10 +59,10 @@ export default function ReportsPage() {
           </p>
         </div>
 
-        <div style={{ display: "flex", gap: "2rem", flex: 1, minHeight: 0 }}>
+        <div className="flex flex-col md:flex-row gap-8 flex-1 min-h-0">
           
-          {/* LEFT PANEL: 30% Configuration */}
-          <div style={{ width: "380px", flexShrink: 0, display: "flex", flexDirection: "column", gap: "1.5rem", overflowY: "auto", paddingRight: "0.5rem" }}>
+          {/* LEFT PANEL: Configuration */}
+          <div className="w-full md:w-[380px] flex-shrink-0 flex flex-col gap-6 overflow-y-auto pr-2">
             
             {/* Configuration Form */}
             <div style={{ background: "#FFFFFF", border: "1px solid #E2E5EC", borderRadius: "0.75rem", padding: "1.25rem", boxShadow: "0 2px 4px rgba(0,0,0,0.02)" }}>
