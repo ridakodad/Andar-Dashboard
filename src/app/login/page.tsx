@@ -3,13 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/lib/auth-context";
-import { Eye, EyeOff, AlertCircle, Mail, Lock, ShieldCheck, Activity, FileText } from "lucide-react";
-
-const FEATURES = [
-  { icon: ShieldCheck, label: "Multi-référentiel",  desc: "AC · JCI · HAS V2025" },
-  { icon: Activity,    label: "KPIs en temps réel", desc: "26 indicateurs qualité" },
-  { icon: FileText,    label: "Rapports PDF",        desc: "Export & accréditation" },
-];
+import { Eye, EyeOff, AlertCircle, Mail, Lock } from "lucide-react";
 
 export default function LoginPage() {
   const { login } = useAuth();
@@ -73,8 +67,8 @@ export default function LoginPage() {
           background: "linear-gradient(90deg, #3D6B40, #7BC47F, #3D6B40)"
         }} />
 
-        {/* Content */}
-        <div className="relative flex flex-col justify-between h-full p-14 z-10">
+        {/* Content — logo mark top-left, main text upper area */}
+        <div className="relative flex flex-col h-full p-14 z-10" style={{ justifyContent: "flex-start", paddingTop: "3.5rem" }}>
           {/* Top: small logo mark */}
           <div style={{
             display: "inline-flex", alignItems: "center", gap: "0.6rem",
@@ -84,6 +78,7 @@ export default function LoginPage() {
             borderRadius: "10px",
             padding: "0.5rem 0.875rem",
             alignSelf: "flex-start",
+            marginBottom: "3rem",
           }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/huim6_icon.png" alt="HUIM6" style={{ height: "22px", width: "auto" }} />
@@ -92,7 +87,7 @@ export default function LoginPage() {
             <span style={{ fontSize: "0.65rem", fontWeight: 600, color: "#7BC47F", letterSpacing: "0.06em" }}>أنظر</span>
           </div>
 
-          {/* Bottom: main text */}
+          {/* Main text */}
           <div>
             <div style={{
               display: "inline-flex", alignItems: "center", gap: "0.5rem",
@@ -110,47 +105,26 @@ export default function LoginPage() {
 
             <h1 style={{
               fontSize: "3.25rem", fontWeight: 900, color: "#FFFFFF",
-              lineHeight: 1.08, letterSpacing: "-0.03em", marginBottom: "0.75rem",
+              lineHeight: 1.08, letterSpacing: "-0.03em", marginBottom: "0.25rem",
             }}>
               Hôpital Univ.<br />International<br />
               <span style={{ color: "#7BC47F" }}>Mohammed VI</span>
             </h1>
 
+            <div style={{ 
+              fontSize: "1.25rem", color: "rgba(255,255,255,0.8)", fontWeight: 700,
+              marginBottom: "1rem", letterSpacing: "0.02em"
+            }}>
+              المستشفى الجامعي الدولي محمد السادس
+            </div>
+
             <p style={{
               color: "rgba(255,255,255,0.5)",
-              fontWeight: 500, marginBottom: "2.5rem", letterSpacing: "0.18em",
+              fontWeight: 500, letterSpacing: "0.18em",
               textTransform: "uppercase", fontSize: "0.75rem",
             } as React.CSSProperties}>
               Rabat · Maroc
             </p>
-
-            {/* Feature pills — compact row */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-              {FEATURES.map(({ icon: Icon, label, desc }) => (
-                <div key={label} style={{
-                  display: "flex", alignItems: "center", gap: "0.625rem",
-                  background: "rgba(255,255,255,0.07)",
-                  border: "1px solid rgba(255,255,255,0.10)",
-                  borderRadius: "8px",
-                  padding: "0.5rem 0.75rem",
-                }}>
-                  <div style={{
-                    width: "26px", height: "26px",
-                    background: "rgba(61,107,64,0.22)",
-                    border: "1px solid rgba(61,107,64,0.30)",
-                    borderRadius: "6px",
-                    display: "flex", alignItems: "center", justifyContent: "center",
-                    flexShrink: 0,
-                  }}>
-                    <Icon size={13} color="#7BC47F" />
-                  </div>
-                  <div style={{ display: "flex", alignItems: "baseline", gap: "0.4rem" }}>
-                    <span style={{ fontSize: "0.72rem", fontWeight: 700, color: "rgba(255,255,255,0.85)" }}>{label}</span>
-                    <span style={{ fontSize: "0.62rem", color: "rgba(255,255,255,0.35)", fontWeight: 400 }}>· {desc}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </div>

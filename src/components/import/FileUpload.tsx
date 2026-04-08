@@ -70,14 +70,15 @@ export default function FileUpload({ template, onDataParsed }: Props) {
         onDragLeave={() => setIsDragging(false)}
         onDrop={handleDrop}
         style={{
-          border: `2px dashed ${isDragging ? "#3D6B40" : "#CBD5E1"}`,
-          borderRadius: "0.75rem",
-          padding: "3rem 2rem",
+          border: `2px dashed ${isDragging ? "var(--green)" : "var(--border-strong)"}`,
+          borderRadius: "var(--radius)",
+          padding: "3.5rem 2rem",
           textAlign: "center",
-          background: isDragging ? "rgba(61,107,64,0.05)" : "#F8FAFC",
-          transition: "all 0.2s",
+          background: isDragging ? "var(--green-muted)" : "var(--bg)",
+          transition: "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
           cursor: "pointer",
           position: "relative",
+          boxShadow: isDragging ? "inset 0 0 20px rgba(61,107,64,0.05)" : "none",
         }}
         onClick={() => document.getElementById("file-input")?.click()}
       >
@@ -90,32 +91,39 @@ export default function FileUpload({ template, onDataParsed }: Props) {
         />
 
         <div style={{
-          width: "56px", height: "56px",
-          background: "#FFFFFF",
-          border: "1px solid #E2E5EC",
-          borderRadius: "12px",
+          width: "64px", height: "64px",
+          background: "var(--card)",
+          border: "1px solid var(--border)",
+          borderRadius: "16px",
           display: "flex", alignItems: "center", justifyContent: "center",
-          margin: "0 auto 1rem",
-          boxShadow: "0 4px 6px -1px rgba(0,0,0,0.05)",
+          margin: "0 auto 1.25rem",
+          boxShadow: "var(--shadow-sm)",
+          color: fileName ? "var(--green)" : "var(--text-muted)",
         }}>
-          {fileName ? <FileSpreadsheet size={28} color="#3D6B40" /> : <Upload size={28} color="#8896A6" />}
+          {fileName ? <FileSpreadsheet size={32} /> : <Upload size={32} />}
         </div>
 
         {fileName ? (
           <div>
-            <div style={{ fontWeight: 600, color: "#1A2332", marginBottom: "0.25rem" }}>{fileName}</div>
-            <div style={{ fontSize: "0.75rem", color: "#3D6B40", fontWeight: 500 }}>Fichier chargé — cliquer pour remplacer</div>
+            <div style={{ fontWeight: 800, color: "var(--text-primary)", marginBottom: "0.25rem", fontSize: "1rem" }}>{fileName}</div>
+            <div style={{ fontSize: "0.78rem", color: "var(--green)", fontWeight: 700, letterSpacing: "0.02em" }}>FICHIER PRÊT · CLIQUER POUR REMPLACER</div>
           </div>
         ) : (
           <div>
-            <div style={{ fontWeight: 600, color: "#1A2332", marginBottom: "0.25rem" }}>
-              Glissez votre fichier ici
+            <div style={{ fontWeight: 800, color: "var(--text-primary)", marginBottom: "0.5rem", fontSize: "1.1rem", letterSpacing: "-0.01em" }}>
+              Déposez votre fichier ici
             </div>
-            <div style={{ fontSize: "0.75rem", color: "#8896A6" }}>
-              ou cliquez pour sélectionner — .xlsx, .xls, .csv
+            <div style={{ fontSize: "0.825rem", color: "var(--text-muted)", fontWeight: 500 }}>
+              ou cliquez pour parcourir vos documents (.xlsx, .csv)
             </div>
-            <div style={{ fontSize: "0.7rem", color: "#4A5568", marginTop: "0.75rem", background: "#FFFFFF", display: "inline-block", padding: "0.2rem 0.6rem", borderRadius: "9999px", border: "1px solid #E2E5EC" }}>
-              Template : <span style={{ color: "#3D6B40", fontWeight: 700 }}>{template.label}</span>
+            <div style={{ 
+              fontSize: "0.68rem", color: "var(--green)", marginTop: "1.25rem", background: "var(--green-muted)", 
+              display: "inline-flex", alignItems: "center", gap: "0.4rem",
+              padding: "0.35rem 0.875rem", borderRadius: "999px", border: "1px solid rgba(61,107,64,0.15)",
+              fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.04em"
+            }}>
+              <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "var(--green)" }} />
+              Template : {template.label}
             </div>
           </div>
         )}
@@ -123,15 +131,15 @@ export default function FileUpload({ template, onDataParsed }: Props) {
 
       {error && (
         <div style={{
-          marginTop: "1rem",
-          padding: "0.75rem",
+          marginTop: "1.25rem",
+          padding: "1rem",
           background: "rgba(154,40,48,0.08)",
           border: "1px solid rgba(154,40,48,0.2)",
-          borderRadius: "0.5rem",
-          display: "flex", alignItems: "center", gap: "0.5rem",
-          color: "#9A2830", fontSize: "0.8rem", fontWeight: 500,
+          borderRadius: "var(--radius-sm)",
+          display: "flex", alignItems: "center", gap: "0.75rem",
+          color: "var(--red)", fontSize: "0.825rem", fontWeight: 600,
         }}>
-          <AlertCircle size={16} />
+          <AlertCircle size={18} />
           {error}
         </div>
       )}

@@ -50,13 +50,9 @@ export default function ReportsPage() {
     <AppLayout>
       <div style={{ display: "flex", flexDirection: "column", height: "calc(100vh - 4rem)" }}>
         {/* Header */}
-        <div style={{ marginBottom: "1.5rem", flexShrink: 0 }}>
-          <h1 style={{ fontSize: "1.75rem", fontWeight: 800, color: "#1A2332", letterSpacing: "-0.02em" }}>
-            Génération de Rapports
-          </h1>
-          <p style={{ color: "#4A5568", fontSize: "0.95rem" }}>
-            Configurez et prévisualisez vos rapports officiels d&apos;accréditation
-          </p>
+        <div className="page-header">
+          <h1 className="page-title">Génération de Rapports</h1>
+          <p className="page-subtitle">Configurez et prévisualisez vos rapports officiels d&apos;accréditation</p>
         </div>
 
         <div className="flex flex-col md:flex-row gap-8 flex-1 min-h-0">
@@ -65,17 +61,17 @@ export default function ReportsPage() {
           <div className="w-full md:w-[380px] flex-shrink-0 flex flex-col gap-6 overflow-y-auto pr-2">
             
             {/* Configuration Form */}
-            <div style={{ background: "#FFFFFF", border: "1px solid #E2E5EC", borderRadius: "0.75rem", padding: "1.25rem", boxShadow: "0 2px 4px rgba(0,0,0,0.02)" }}>
-              <h2 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#1A2332", marginBottom: "1.25rem", display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                <Settings size={18} color="#3D6B40" /> Critères du Rapport
+            <div className="card" style={{ padding: "1.5rem" }}>
+              <h2 style={{ fontSize: "0.95rem", fontWeight: 800, color: "var(--text-primary)", marginBottom: "1.5rem", display: "flex", alignItems: "center", gap: "0.6rem" }}>
+                <Settings size={18} color="var(--green)" /> Critères du Rapport
               </h2>
 
               <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
                 <div>
-                  <label style={{ display: "block", fontSize: "0.8rem", fontWeight: 700, color: "#4A5568", marginBottom: "0.5rem" }}>1. Référentiel</label>
+                  <label style={{ display: "block", fontSize: "0.68rem", fontWeight: 700, color: "var(--text-secondary)", textTransform: "uppercase", marginBottom: "0.5rem", letterSpacing: "0.05em" }}>1. Référentiel</label>
                   <select 
                     value={framework} onChange={e => setFramework(e.target.value)}
-                    style={{ width: "100%", padding: "0.6rem 0.75rem", borderRadius: "0.375rem", border: "1px solid #E2E5EC", background: "#F8FAFC", fontSize: "0.9rem", color: "#1A2332", outline: "none" }}
+                    className="form-select"
                   >
                     <option>Accreditation Canada</option>
                     <option>JCI</option>
@@ -84,10 +80,10 @@ export default function ReportsPage() {
                 </div>
 
                 <div>
-                  <label style={{ display: "block", fontSize: "0.8rem", fontWeight: 700, color: "#4A5568", marginBottom: "0.5rem" }}>2. Type de rapport</label>
+                  <label style={{ display: "block", fontSize: "0.68rem", fontWeight: 700, color: "var(--text-secondary)", textTransform: "uppercase", marginBottom: "0.5rem", letterSpacing: "0.05em" }}>2. Type de rapport</label>
                   <select 
                     value={reportType} onChange={e => setReportType(e.target.value)}
-                    style={{ width: "100%", padding: "0.6rem 0.75rem", borderRadius: "0.375rem", border: "1px solid #E2E5EC", background: "#F8FAFC", fontSize: "0.9rem", color: "#1A2332", outline: "none" }}
+                    className="form-select"
                   >
                     <option>Rapport de conformité global</option>
                     <option>Rapport KPIs mensuel</option>
@@ -98,10 +94,10 @@ export default function ReportsPage() {
                 </div>
 
                 <div>
-                  <label style={{ display: "block", fontSize: "0.8rem", fontWeight: 700, color: "#4A5568", marginBottom: "0.5rem" }}>3. Département</label>
+                  <label style={{ display: "block", fontSize: "0.68rem", fontWeight: 700, color: "var(--text-secondary)", textTransform: "uppercase", marginBottom: "0.5rem", letterSpacing: "0.05em" }}>3. Département</label>
                   <select 
                     value={department} onChange={e => setDepartment(e.target.value)}
-                    style={{ width: "100%", padding: "0.6rem 0.75rem", borderRadius: "0.375rem", border: "1px solid #E2E5EC", background: "#F8FAFC", fontSize: "0.9rem", color: "#1A2332", outline: "none" }}
+                    className="form-select"
                   >
                     <option>Tous les départements</option>
                     {DEMO_DEPARTMENTS.map(d => <option key={d.id}>{d.name}</option>)}
@@ -109,37 +105,24 @@ export default function ReportsPage() {
                 </div>
 
                 <div>
-                  <label style={{ display: "block", fontSize: "0.8rem", fontWeight: 700, color: "#4A5568", marginBottom: "0.5rem" }}>4. Période</label>
+                  <label style={{ display: "block", fontSize: "0.68rem", fontWeight: 700, color: "var(--text-secondary)", textTransform: "uppercase", marginBottom: "0.5rem", letterSpacing: "0.05em" }}>4. Période</label>
                   <input 
                     type="text" value={dateRange} onChange={e => setDateRange(e.target.value)}
-                    style={{ width: "100%", padding: "0.6rem 0.75rem", borderRadius: "0.375rem", border: "1px solid #E2E5EC", background: "#F8FAFC", fontSize: "0.9rem", color: "#1A2332", outline: "none" }}
+                    className="form-input"
                   />
                 </div>
 
                 <div style={{ paddingTop: "0.5rem", display: "flex", flexDirection: "column", gap: "0.75rem" }}>
-                  <button onClick={handleGenerate} disabled={isGenerating} style={{ 
-                    width: "100%", background: "#3D6B40", color: "#FFFFFF", border: "none", 
-                    padding: "0.875rem", borderRadius: "0.5rem", fontWeight: 700, fontSize: "0.95rem", 
-                    cursor: isGenerating ? "wait" : "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: "0.5rem",
-                    transition: "all 0.2s"
-                  }}>
+                  <button onClick={handleGenerate} disabled={isGenerating} className="btn-primary" style={{ width: "100%", justifyContent: "center", padding: "0.875rem" }}>
                     {isGenerating ? "Calcul en cours..." : <><Search size={18} /> Générer le rapport</>}
                   </button>
 
                   <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.5rem" }}>
-                    <button onClick={handleExportPDF} style={{ 
-                      background: "#FFFFFF", color: "#1A2332", border: "1px solid #E2E5EC", 
-                      padding: "0.6rem", borderRadius: "0.5rem", fontWeight: 700, fontSize: "0.8rem", 
-                      cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: "0.375rem"
-                    }}>
-                      <Download size={14} /> Exporter PDF
+                    <button onClick={handleExportPDF} className="btn-outline" style={{ padding: "0.6rem", fontSize: "0.8rem", justifyContent: "center" }}>
+                      <Download size={14} /> PDF
                     </button>
-                    <button onClick={handleExportExcel} style={{ 
-                      background: "#FFFFFF", color: "#1A2332", border: "1px solid #E2E5EC", 
-                      padding: "0.6rem", borderRadius: "0.5rem", fontWeight: 700, fontSize: "0.8rem", 
-                      cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: "0.375rem"
-                    }}>
-                      <Download size={14} /> Exporter Excel
+                    <button onClick={handleExportExcel} className="btn-outline" style={{ padding: "0.6rem", fontSize: "0.8rem", justifyContent: "center" }}>
+                      <Download size={14} /> Excel
                     </button>
                   </div>
                 </div>
@@ -148,27 +131,25 @@ export default function ReportsPage() {
 
             {/* Past Reports */}
             <div>
-              <h3 style={{ fontSize: "0.9rem", fontWeight: 700, color: "#8896A6", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "0.75rem", marginLeft: "0.5rem" }}>
-                Derniers rapports générés
+              <h3 style={{ fontSize: "0.68rem", fontWeight: 800, color: "var(--text-muted)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "0.875rem", marginLeft: "0.5rem" }}>
+                Rapports récents
               </h3>
               <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-                {pastReports.map(rp => (
-                  <div key={rp.id} style={{ 
-                    background: "#FFFFFF", border: "1px solid #E2E5EC", borderRadius: "0.5rem", 
-                    padding: "0.75rem 1rem", display: "flex", alignItems: "center", justifyContent: "space-between",
-                    cursor: "pointer"
-                  }}
-                  onMouseEnter={e => e.currentTarget.style.borderColor = "#CBD5E1"}
-                  onMouseLeave={e => e.currentTarget.style.borderColor = "#E2E5EC"}
-                  >
-                    <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
-                      <FileText size={18} color={rp.type === "PDF" ? "#9A2830" : "#3D6B40"} />
+                {pastReports.map((rp, i) => (
+                  <div key={rp.id} className="card card-hover card-enter" style={{ 
+                    padding: "0.875rem 1rem", display: "flex", alignItems: "center", justifyContent: "space-between",
+                    animationDelay: `${i * 0.05}s`
+                  }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: "0.875rem" }}>
+                      <div style={{ width: "32px", height: "32px", borderRadius: "var(--radius-sm)", background: rp.type === "PDF" ? "rgba(154,40,48,0.1)" : "var(--green-muted)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                        <FileText size={16} color={rp.type === "PDF" ? "var(--red)" : "var(--green)"} />
+                      </div>
                       <div>
-                        <div style={{ fontSize: "0.85rem", fontWeight: 600, color: "#1A2332" }}>{rp.name}</div>
-                        <div style={{ fontSize: "0.75rem", color: "#8896A6" }}>{rp.date}</div>
+                        <div style={{ fontSize: "0.825rem", fontWeight: 700, color: "var(--text-primary)" }}>{rp.name}</div>
+                        <div style={{ fontSize: "0.72rem", color: "var(--text-muted)", fontWeight: 500 }}>{rp.date}</div>
                       </div>
                     </div>
-                    <Download size={16} color="#8896A6" />
+                    <Download size={14} color="var(--text-muted)" />
                   </div>
                 ))}
               </div>

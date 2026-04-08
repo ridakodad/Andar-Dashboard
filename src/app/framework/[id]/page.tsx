@@ -33,18 +33,12 @@ const statusConfig: Record<StatusType, { label: string; color: string; bg: strin
 };
 
 function StatusBadge({ status }: { status: StatusType }) {
+  const badgeClass = status === "conforme" ? "badge badge-conforme" :
+                     status === "partiel" ? "badge badge-partiel" :
+                     status === "non-conforme" ? "badge badge-non-conforme" : "badge badge-na";
   const s = statusConfig[status] || statusConfig.na;
   return (
-    <span style={{
-      display: "inline-block",
-      padding: "0.2rem 0.6rem",
-      background: s.bg, color: s.color,
-      border: `1px solid ${s.color}30`,
-      borderRadius: "9999px",
-      fontSize: "0.65rem", fontWeight: 700,
-      letterSpacing: "0.03em",
-      whiteSpace: "nowrap",
-    }}>
+    <span className={badgeClass}>
       {s.label}
     </span>
   );
@@ -104,32 +98,34 @@ function getAssessments(fw: FwId): Record<string, StatusType> {
   return DEMO_HAS_ASSESSMENTS as Record<string, StatusType>;
 }
 
-function DomainAccordion({ domain, assessments, fw }: { domain: DomainGroup; assessments: Record<string, StatusType>; fw: FwId }) {
+function DomainAccordion({ domain, assessments, fw, index }: { domain: DomainGroup; assessments: Record<string, StatusType>; fw: FwId; index: number }) {
   const [open, setOpen] = useState(false);
   const meta = frameworkMeta[fw];
   const score = domain.score ?? 0;
-  const statusColor = score >= 85 ? "#3D6B40" : score >= 70 ? "#D4830A" : "#9A2830";
+  const statusColor = score >= 85 ? "var(--green)" : score >= 70 ? "var(--amber)" : "var(--red)";
 
   const domainTotal = domain.standards.length;
   const conformes = domain.standards.filter(s => assessments[s.id] === "conforme").length;
 
   return (
-    <div style={{
-      border: "1px solid #E2E5EC", borderRadius: "0.75rem", marginBottom: "0.5rem",
-      overflow: "hidden", transition: "all 0.2s", background: "#FFFFFF",
-      boxShadow: "0 2px 4px rgba(0,0,0,0.02)",
-    }}>
+    <div 
+      className="card card-enter"
+      style={{
+        padding: 0, marginBottom: "0.75rem", overflow: "hidden", 
+        animationDelay: `${index * 0.05}s`
+      }}
+    >
       <button
         onClick={() => setOpen(!open)}
         style={{
-          width: "100%", display: "flex", alignItems: "center", gap: "0.75rem",
-          padding: "1rem 1.25rem",
-          background: open ? "#F8FAFC" : "#FFFFFF",
+          width: "100%", display: "flex", alignItems: "center", gap: "1rem",
+          padding: "1.25rem 1.5rem",
+          background: open ? "var(--bg)" : "var(--card)",
           border: "none", cursor: "pointer",
           textAlign: "left", transition: "background 0.15s",
         }}
-        onMouseEnter={e => { if (!open) e.currentTarget.style.background = "#F1F5F9"; }}
-        onMouseLeave={e => { if (!open) e.currentTarget.style.background = "#FFFFFF"; }}
+        onMouseEnter={e => { if (!open) e.currentTarget.style.background = "var(--bg)"; }}
+        onMouseLeave={e => { if (!open) e.currentTarget.style.background = "var(--card)"; }}
       >
         <div style={{ color: "#8896A6", flexShrink: 0 }}>
           {open ? <ChevronDown size={18} /> : <ChevronRight size={18} />}
@@ -248,13 +244,12 @@ export default function FrameworkPage() {
     <AppLayout>
       <div style={{ maxWidth: "1200px" }}>
         {/* Header + Tab nav */}
+        <div className="page-header">
+          <h1 className="page-title">Référentiels Détaillés</h1>
+          <p className="page-subtitle">Exploration par domaine et standard — {fwId}</p>
+        </div>
+
         <div style={{ marginBottom: "2rem" }}>
-          <h1 style={{ fontSize: "1.75rem", fontWeight: 800, color: "#1A2332", marginBottom: "0.25rem", letterSpacing: "-0.02em" }}>
-            Référentiels Détaillés
-          </h1>
-          <p style={{ color: "#4A5568", fontSize: "0.9rem", marginBottom: "1.5rem", fontWeight: 500 }}>
-            Vue par domaine et standard — cliquer pour développer
-          </p>
 
           {/* Framework tabs */}
           <div className="flex flex-wrap gap-2">
@@ -267,18 +262,18 @@ export default function FrameworkPage() {
                   onClick={() => router.push(`/framework/${fw}`)}
                   style={{
                     padding: "0.6rem 1.5rem",
-                    background: active ? m.color : "#FFFFFF",
-                    border: `1px solid ${active ? m.color : "#E2E5EC"}`,
-                    borderRadius: "0.5rem",
-                    color: active ? "white" : "#4A5568",
+                    background: active ? m.color : "var(--card)",
+                    border: `1px solid ${active ? m.color : "var(--border)"}`,
+                    borderRadius: "var(--radius-sm)",
+                    color: active ? "white" : "var(--text-secondary)",
                     fontSize: "0.85rem",
                     fontWeight: active ? 700 : 500,
                     cursor: "pointer",
                     transition: "all 0.15s",
-                    boxShadow: active ? `0 4px 6px -1px ${m.color}30` : "0 2px 4px rgba(0,0,0,0.02)",
+                    boxShadow: active ? `0 4px 12px ${m.color}35` : "var(--shadow-sm)",
                   }}
-                  onMouseEnter={e => { if (!active) e.currentTarget.style.background = "#F8FAFC"; }}
-                  onMouseLeave={e => { if (!active) e.currentTarget.style.background = "#FFFFFF"; }}
+                  onMouseEnter={e => { if (!active) e.currentTarget.style.background = "var(--bg)"; }}
+                  onMouseLeave={e => { if (!active) e.currentTarget.style.background = "var(--card)"; }}
                 >
                   {fw}
                 </button>
@@ -290,12 +285,12 @@ export default function FrameworkPage() {
         <div className="flex flex-col md:grid md:grid-cols-[340px_1fr] gap-6 items-start">
           {/* Left: Radar + score */}
           <div className="flex flex-col gap-5 w-full">
-            <div className="card" style={{ textAlign: "center" }}>
+            <div className="card" style={{ textAlign: "center", padding: "1.5rem" }}>
               <div className="card-header">Score Global {fwId}</div>
-              <div style={{ fontSize: "3rem", fontWeight: 800, color: meta.color, lineHeight: 1 }}>
+              <div style={{ fontSize: "3.25rem", fontWeight: 900, color: meta.color, lineHeight: 1, letterSpacing: "-0.04em", marginBottom: "0.25rem" }}>
                 {globalScore}%
               </div>
-              <div style={{ fontSize: "0.75rem", color: "#8896A6", marginBottom: "1.25rem", fontWeight: 600 }}>
+              <div style={{ fontSize: "0.72rem", color: "var(--text-muted)", marginBottom: "1.5rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em" }}>
                 {meta.label}
               </div>
 
@@ -345,21 +340,14 @@ export default function FrameworkPage() {
             </div>
 
             {/* Department filter */}
-            <div className="card">
+            <div className="card" style={{ padding: "1.5rem" }}>
               <div className="card-header">Filtrer par Service</div>
-              <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                <Filter size={14} color="#8896A6" />
+              <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+                <Filter size={14} color="var(--text-muted)" />
                 <select
                   value={selectedDept}
                   onChange={e => setSelectedDept(e.target.value)}
-                  style={{
-                    flex: 1, background: "#FFFFFF",
-                    border: "1px solid #E2E5EC", borderRadius: "0.375rem",
-                    color: "#1A2332", padding: "0.5rem", fontSize: "0.8rem",
-                    outline: "none", cursor: "pointer", fontWeight: 500,
-                  }}
-                  onFocus={e => e.target.style.borderColor = "#3D6B40"}
-                  onBlur={e => e.target.style.borderColor = "#E2E5EC"}
+                  className="form-select"
                 >
                   <option value="ALL">Tous les services</option>
                   {DEMO_DEPARTMENTS.map(d => (
@@ -404,12 +392,13 @@ export default function FrameworkPage() {
               </div>
             </div>
 
-            {domains.map(domain => (
+            {domains.map((domain, i) => (
               <DomainAccordion
                 key={domain.id}
                 domain={domain}
                 assessments={assessments}
                 fw={fwId}
+                index={i}
               />
             ))}
           </div>

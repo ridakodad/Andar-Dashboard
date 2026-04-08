@@ -29,26 +29,24 @@ export default function ImportPage() {
   return (
     <AppLayout>
       <div style={{ maxWidth: "1100px" }}>
-        <div style={{ marginBottom: "2rem" }}>
-          <h1 style={{ fontSize: "1.75rem", fontWeight: 800, color: "#1A2332", letterSpacing: "-0.02em" }}>Import de Données</h1>
-          <p style={{ color: "#4A5568", fontSize: "0.9rem", marginTop: "0.25rem", fontWeight: 500 }}>
-            Importez vos données qualité via Excel ou CSV — validation automatique avant traitement
-          </p>
+        <div className="page-header">
+          <h1 className="page-title">Import de Données</h1>
+          <p className="page-subtitle">Importez vos données qualité via Excel ou CSV — validation automatique avant traitement</p>
         </div>
 
         {importSuccess && (
           <div style={{
-            background: "rgba(61,107,64,0.1)", border: "1px solid rgba(61,107,64,0.25)",
-            borderRadius: "0.75rem", padding: "1rem 1.5rem",
-            display: "flex", alignItems: "center", gap: "0.75rem",
-            marginBottom: "1.5rem",
-            color: "#3D6B40"
+            background: "var(--green-muted)", border: "1px solid var(--green)",
+            borderRadius: "var(--radius)", padding: "1.25rem 1.5rem",
+            display: "flex", alignItems: "center", gap: "1rem",
+            marginBottom: "2rem",
+            color: "var(--green)"
           }}>
-            <CheckCircle2 size={20} />
+            <CheckCircle2 size={24} />
             <div>
-              <div style={{ fontWeight: 700, fontSize: "0.9rem", color: "#2D5030" }}>Import réussi !</div>
-              <div style={{ fontSize: "0.8rem", color: "#3D6B40" }}>
-                Les données ont été traitées. Les KPIs associés ({selectedTemplate.kpis.join(", ")}) seront mis à jour.
+              <div style={{ fontWeight: 800, fontSize: "1rem", color: "var(--text-primary)", marginBottom: "2px" }}>Import réussi !</div>
+              <div style={{ fontSize: "0.825rem", color: "var(--text-secondary)", fontWeight: 500 }}>
+                Les données ont été traitées. Les KPIs associés ({selectedTemplate.kpis.join(", ")}) ont été mis à jour dans le tableau de bord.
               </div>
             </div>
           </div>

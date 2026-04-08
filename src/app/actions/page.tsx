@@ -52,37 +52,25 @@ export default function ActionsPage() {
       <div style={{ display: "flex", flexDirection: "column", height: "calc(100vh - 4rem)" }}>
         
         {/* Header */}
-        <div style={{ marginBottom: "1.5rem", flexShrink: 0 }}>
-          <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between" }}>
-            <div>
-              <div style={{ display: "flex", alignItems: "baseline", gap: "0.75rem", marginBottom: "0.5rem" }}>
-                <h1 style={{ fontSize: "1.75rem", fontWeight: 800, color: "#1A2332", letterSpacing: "-0.02em" }}>Plans d&apos;Action</h1>
-              </div>
-              <p style={{ color: "#4A5568", fontSize: "0.95rem" }}>
-                Gestion et suivi des actions correctives (Tableau Kanban)
-              </p>
-            </div>
-            
-            <button style={{ 
-              display: "flex", alignItems: "center", gap: "0.5rem", 
-              background: "#3D6B40", color: "#FFFFFF", border: "none", 
-              padding: "0.6rem 1rem", borderRadius: "0.5rem", 
-              fontWeight: 700, fontSize: "0.85rem", cursor: "pointer",
-              boxShadow: "0 2px 4px rgba(61,107,64,0.2)" 
-            }}>
-              <Plus size={16} /> Nouvelle action
-            </button>
+        <div className="page-header" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
+          <div>
+            <h1 className="page-title">Plans d&apos;Action</h1>
+            <p className="page-subtitle">Gestion et suivi des actions correctives (Tableau Kanban)</p>
           </div>
+          
+          <button className="btn-primary">
+            <Plus size={16} /> Nouvelle action
+          </button>
         </div>
 
         {/* Filters */}
         <div style={{ 
-          background: "#FFFFFF", padding: "0.75rem 1rem", borderRadius: "0.75rem", 
-          display: "flex", gap: "1rem", marginBottom: "1.5rem", flexShrink: 0,
-          border: "1px solid #E2E5EC", boxShadow: "0 1px 2px rgba(0,0,0,0.02)"
+          background: "var(--card)", padding: "0.875rem 1.25rem", borderRadius: "var(--radius)", 
+          display: "flex", gap: "1.25rem", marginBottom: "1.5rem", flexShrink: 0,
+          border: "1px solid var(--border)", boxShadow: "var(--shadow-sm)"
         }}>
           <div>
-            <select style={{ padding: "0.4rem 0.75rem", borderRadius: "0.375rem", border: "1px solid #E2E5EC", fontSize: "0.8rem", background: "#F8FAFC", color: "#1A2332", outline: "none" }}>
+            <select style={{ padding: "0.4rem 0.75rem", borderRadius: "var(--radius-sm)", border: "1px solid var(--border)", fontSize: "0.8rem", background: "var(--bg)", color: "var(--text-primary)", outline: "none", fontWeight: 500 }}>
               <option>Tous les départements</option>
               <option>Bloc Opératoire</option>
               <option>DSI</option>
@@ -90,7 +78,7 @@ export default function ActionsPage() {
             </select>
           </div>
           <div>
-            <select style={{ padding: "0.4rem 0.75rem", borderRadius: "0.375rem", border: "1px solid #E2E5EC", fontSize: "0.8rem", background: "#F8FAFC", color: "#1A2332", outline: "none" }}>
+            <select style={{ padding: "0.4rem 0.75rem", borderRadius: "var(--radius-sm)", border: "1px solid var(--border)", fontSize: "0.8rem", background: "var(--bg)", color: "var(--text-primary)", outline: "none", fontWeight: 500 }}>
               <option>Toutes les priorités</option>
               <option>Critique</option>
               <option>Haute</option>
@@ -98,7 +86,7 @@ export default function ActionsPage() {
             </select>
           </div>
           <div>
-            <select style={{ padding: "0.4rem 0.75rem", borderRadius: "0.375rem", border: "1px solid #E2E5EC", fontSize: "0.8rem", background: "#F8FAFC", color: "#1A2332", outline: "none" }}>
+            <select style={{ padding: "0.4rem 0.75rem", borderRadius: "var(--radius-sm)", border: "1px solid var(--border)", fontSize: "0.8rem", background: "var(--bg)", color: "var(--text-primary)", outline: "none", fontWeight: 500 }}>
               <option>Tous les référentiels</option>
               <option>Accreditation Canada</option>
               <option>JCI</option>
@@ -118,22 +106,22 @@ export default function ActionsPage() {
                 onDragOver={handleDragOver}
                 onDrop={(e) => handleDrop(e, col.title)}
                 style={{
-                  background: "#F5F6FA", border: "1px solid #E2E5EC", borderRadius: "0.75rem",
+                  background: "var(--bg)", border: "1px solid var(--border)", borderRadius: "var(--radius)",
                   display: "flex", flexDirection: "column", overflow: "hidden"
                 }}
               >
                 {/* Column Header */}
                 <div style={{ 
-                  padding: "1rem", borderBottom: "1px solid #E2E5EC", background: "#FFFFFF",
+                  padding: "1rem 1.25rem", borderBottom: "1px solid var(--border)", background: "var(--card)",
                   display: "flex", alignItems: "center", justifyContent: "space-between"
                 }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "0.6rem" }}>
                     <span style={{ color: col.color, display: "flex" }}>{col.icon}</span>
-                    <h2 style={{ fontSize: "0.95rem", fontWeight: 700, color: "#1A2332" }}>{col.title}</h2>
+                    <h2 style={{ fontSize: "0.9rem", fontWeight: 800, color: "var(--text-primary)", letterSpacing: "0.02em" }}>{col.title}</h2>
                   </div>
                   <div style={{ 
-                    background: "#F1F5F9", color: "#4A5568", fontSize: "0.7rem", fontWeight: 800, 
-                    padding: "0.15rem 0.5rem", borderRadius: "999px" 
+                    background: "var(--bg)", color: "var(--text-secondary)", fontSize: "0.65rem", fontWeight: 800, 
+                    padding: "0.15rem 0.5rem", borderRadius: "999px", border: "1px solid var(--border)"
                   }}>
                     {colActions.length}
                   </div>
@@ -144,7 +132,7 @@ export default function ActionsPage() {
                   flex: 1, padding: "1rem", overflowY: "auto", 
                   display: "flex", flexDirection: "column", gap: "0.75rem" 
                 }}>
-                  {colActions.map(action => {
+                  {colActions.map((action, i) => {
                     const priorityStyle = getPriorityColor(action.priority);
                     
                     return (
@@ -152,23 +140,26 @@ export default function ActionsPage() {
                         key={action.id}
                         draggable
                         onDragStart={(e) => handleDragStart(e, action.id)}
+                        className="card card-hover card-enter"
                         style={{
-                          background: "#FFFFFF", border: `1px solid ${draggedId === action.id ? "#3D6B40" : "#E2E5EC"}`, 
-                          borderRadius: "0.5rem", padding: "1rem", cursor: "grab",
-                          boxShadow: "0 1px 3px rgba(0,0,0,0.05)", position: "relative",
-                          opacity: draggedId === action.id ? 0.5 : 1, transition: "border 0.2s"
+                          padding: "1.25rem", cursor: "grab",
+                          position: "relative",
+                          opacity: draggedId === action.id ? 0.5 : 1, 
+                          borderColor: draggedId === action.id ? "var(--green)" : "var(--border)",
+                          animationDelay: `${i * 0.05}s`,
                         }}
                       >
                         {/* Standard badge */}
-                        <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.5rem", alignItems: "flex-start" }}>
-                          <span style={{ fontSize: "0.65rem", fontWeight: 700, color: "#3D6B40", background: "#F0FDF4", padding: "0.15rem 0.4rem", borderRadius: "0.25rem", border: "1px solid #DCFCE7" }}>
+                        <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.75rem", alignItems: "flex-start" }}>
+                          <span style={{ fontSize: "0.62rem", fontWeight: 800, color: "var(--green)", background: "var(--green-muted)", padding: "0.15rem 0.5rem", borderRadius: "var(--radius-xs)", border: "1px solid rgba(61,107,64,0.15)", textTransform: "uppercase", letterSpacing: "0.02em" }}>
                             {action.standard}
                           </span>
                           
                           <span style={{ 
-                            fontSize: "0.65rem", fontWeight: 700, color: priorityStyle.text, background: priorityStyle.bg, 
-                            padding: "0.15rem 0.4rem", borderRadius: "0.25rem", 
-                            display: "flex", alignItems: "center", gap: "0.25rem" 
+                            fontSize: "0.62rem", fontWeight: 800, color: priorityStyle.text, background: priorityStyle.bg, 
+                            padding: "0.15rem 0.5rem", borderRadius: "0.4rem", 
+                            display: "flex", alignItems: "center", gap: "0.3rem",
+                            textTransform: "uppercase"
                           }}>
                             <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: priorityStyle.dot }} />
                             {action.priority}
@@ -176,36 +167,36 @@ export default function ActionsPage() {
                         </div>
 
                         {/* Title */}
-                        <h3 style={{ fontSize: "0.85rem", fontWeight: 700, color: "#1A2332", lineHeight: 1.4, marginBottom: "0.5rem" }}>
+                        <h3 style={{ fontSize: "0.875rem", fontWeight: 700, color: "var(--text-primary)", lineHeight: 1.45, marginBottom: "0.75rem" }}>
                           {action.title}
                         </h3>
 
                         {/* Dept & assignee */}
-                        <div style={{ fontSize: "0.75rem", color: "#4A5568", marginBottom: "0.75rem", display: "flex", flexDirection: "column", gap: "0.25rem" }}>
-                          <span style={{ fontWeight: 600 }}>{action.department}</span>
-                          <div style={{ display: "flex", alignItems: "center", gap: "0.375rem" }}>
-                            <div style={{ width: "16px", height: "16px", borderRadius: "50%", background: "#E2E5EC", display: "flex", alignItems: "center", justifyContent: "center", color: "#4A5568", fontSize: "0.5rem", fontWeight: 700 }}>
+                        <div style={{ fontSize: "0.78rem", color: "var(--text-body)", marginBottom: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+                          <div style={{ fontWeight: 700, fontSize: "0.72rem", color: "var(--text-secondary)", textTransform: "uppercase", letterSpacing: "0.04em" }}>{action.department}</div>
+                          <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                            <div style={{ width: "20px", height: "20px", borderRadius: "50%", background: "var(--bg)", border: "1px solid var(--border)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--text-secondary)", fontSize: "0.6rem", fontWeight: 800 }}>
                               {action.assignee.charAt(0)}
                             </div>
-                            <span>{action.assignee}</span>
+                            <span style={{ fontWeight: 500 }}>{action.assignee}</span>
                           </div>
                         </div>
 
                         {/* Footer (Deadline + Comments) */}
                         <div style={{ 
                           display: "flex", justifyContent: "space-between", alignItems: "center", 
-                          paddingTop: "0.5rem", borderTop: "1px solid #F1F5F9" 
+                          paddingTop: "0.75rem", borderTop: "1px solid var(--border)" 
                         }}>
                           <div style={{ 
-                            display: "flex", alignItems: "center", gap: "0.25rem", 
-                            fontSize: "0.7rem", fontWeight: 600,
-                            color: isOverdue(action.deadline) ? "#9A2830" : "#8896A6" 
+                            display: "flex", alignItems: "center", gap: "0.375rem", 
+                            fontSize: "0.72rem", fontWeight: 700,
+                            color: isOverdue(action.deadline) ? "var(--red)" : "var(--text-muted)" 
                           }}>
-                            <Calendar size={12} />
+                            <Calendar size={13} />
                             {new Date(action.deadline).toLocaleDateString("fr-FR", { day: 'numeric', month: 'short' })}
                           </div>
-                          <div style={{ display: "flex", alignItems: "center", gap: "0.25rem", fontSize: "0.7rem", color: "#8896A6" }}>
-                            <MessageSquare size={12} />
+                          <div style={{ display: "flex", alignItems: "center", gap: "0.375rem", fontSize: "0.72rem", color: "var(--text-muted)", fontWeight: 600 }}>
+                            <MessageSquare size={13} />
                             {Math.floor(Math.random() * 3)}
                           </div>
                         </div>

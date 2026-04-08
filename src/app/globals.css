@@ -232,6 +232,26 @@ body {
   border-color: var(--border-strong);
 }
 
+/* ─── Forms ───────────────────────────────────────────────── */
+.form-input, .form-select {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--bg);
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  outline: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+.form-input:focus, .form-select:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px var(--green-muted);
+}
+
+
 /* ─── Tables ──────────────────────────────────────────────── */
 .table-container {
   overflow-x: auto;
