@@ -53,16 +53,16 @@ export default function Sidebar({ isOpen, onClose }: { isOpen?: boolean; onClose
         w-[256px] min-h-screen flex flex-col flex-shrink-0
         transition-transform duration-300 ease-in-out
         ${isOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}
-      `} style={{ background: "#0F1923", borderRight: "1px solid rgba(255,255,255,0.06)" }}>
+      `} style={{ background: "#1E3A4A", borderRight: "1px solid rgba(255,255,255,0.10)" }}>
 
         {/* ── Logo area ── */}
-        <div style={{ padding: "1.5rem 1.25rem 1rem", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+        <div style={{ padding: "1.5rem 1.25rem 1rem", borderBottom: "1px solid rgba(255,255,255,0.10)" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1rem" }}>
             <div style={{
               width: "42px", height: "42px",
-              background: "rgba(255,255,255,0.06)",
+              background: "rgba(255,255,255,0.10)",
               borderRadius: "10px",
-              border: "1px solid rgba(255,255,255,0.10)",
+              border: "1px solid rgba(255,255,255,0.16)",
               display: "flex", alignItems: "center", justifyContent: "center",
               flexShrink: 0,
             }}>
@@ -73,7 +73,7 @@ export default function Sidebar({ isOpen, onClose }: { isOpen?: boolean; onClose
               <div style={{ fontWeight: 800, fontSize: "1rem", color: "#FFFFFF", letterSpacing: "0.04em", lineHeight: 1.1 }}>
                 ANDAR
               </div>
-              <div style={{ fontSize: "0.58rem", color: "#3D6B40", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", marginTop: "1px" }}>
+              <div style={{ fontSize: "0.58rem", color: "#A8D0AA", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", marginTop: "1px" }}>
                 أنظر · Conformité
               </div>
             </div>
@@ -81,18 +81,18 @@ export default function Sidebar({ isOpen, onClose }: { isOpen?: boolean; onClose
 
           {/* Hospital chip */}
           <div style={{
-            background: "rgba(61,107,64,0.12)",
-            border: "1px solid rgba(61,107,64,0.22)",
+            background: "rgba(61,107,64,0.18)",
+            border: "1px solid rgba(61,107,64,0.32)",
             borderRadius: "8px",
             padding: "0.5rem 0.75rem",
           }}>
-            <div style={{ fontSize: "0.6rem", color: "rgba(255,255,255,0.45)", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "2px" }}>
+            <div style={{ fontSize: "0.6rem", color: "rgba(255,255,255,0.55)", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "2px" }}>
               Établissement
             </div>
             <div style={{ fontSize: "0.72rem", fontWeight: 700, color: "#7BC47F", lineHeight: 1.35 }}>
               Hôpital Univ. Int. Mohammed VI
             </div>
-            <div style={{ fontSize: "0.62rem", color: "rgba(255,255,255,0.4)", fontWeight: 500, marginTop: "1px" }}>
+            <div style={{ fontSize: "0.62rem", color: "rgba(255,255,255,0.6)", fontWeight: 500, marginTop: "1px" }}>
               Rabat, Maroc
             </div>
           </div>
@@ -101,7 +101,7 @@ export default function Sidebar({ isOpen, onClose }: { isOpen?: boolean; onClose
         {/* ── Nav ── */}
         <nav style={{ flex: 1, padding: "1rem 0.75rem", display: "flex", flexDirection: "column", gap: "2px" }}>
           <div style={{
-            fontSize: "0.58rem", color: "rgba(255,255,255,0.25)", fontWeight: 700,
+            fontSize: "0.58rem", color: "rgba(255,255,255,0.40)", fontWeight: 700,
             letterSpacing: "0.14em", textTransform: "uppercase",
             padding: "0 0.5rem", marginBottom: "0.5rem",
           }}>
@@ -143,8 +143,8 @@ export default function Sidebar({ isOpen, onClose }: { isOpen?: boolean; onClose
         {user && (
           <div style={{ padding: "0.875rem 0.75rem 1.25rem", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
             <div style={{
-              background: "rgba(255,255,255,0.04)",
-              border: "1px solid rgba(255,255,255,0.08)",
+              background: "rgba(255,255,255,0.07)",
+              border: "1px solid rgba(255,255,255,0.13)",
               borderRadius: "10px",
               padding: "0.875rem",
             }}>
