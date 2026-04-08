@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/lib/auth-context";
 import Sidebar from "@/components/Sidebar";
+import PageTransition from "@/components/PageTransition";
 import { Menu, X } from "lucide-react";
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
@@ -62,7 +63,9 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
 
         {/* ── Page content ── */}
         <div className="flex-1 overflow-auto p-4 md:p-8">
-          {children}
+          <PageTransition>
+            {children}
+          </PageTransition>
         </div>
       </main>
     </div>

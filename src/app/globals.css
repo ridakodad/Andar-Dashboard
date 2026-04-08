@@ -277,8 +277,32 @@ tr:hover td { background: #FAFAFA; }
   50%       { box-shadow: 0 0 0 6px rgba(61,107,64,0); }
 }
 
+/* Page transition: gentle fade-up with slight scale */
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.995);
+    filter: blur(1px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+/* Card stagger animation */
+@keyframes cardEnter {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 .animate-fade-in {
   animation: fadeInUp 0.3s ease forwards;
+}
+
+.card-enter {
+  animation: cardEnter 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 /* ─── Mobile ──────────────────────────────────────────────── */
