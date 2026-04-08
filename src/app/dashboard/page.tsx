@@ -7,30 +7,77 @@ import AlertsTable from "@/components/dashboard/AlertsTable";
 import HeatMap from "@/components/dashboard/HeatMap";
 import { DEMO_GLOBAL_SCORES, DEMO_KPIS } from "@/lib/demo-data";
 import { useRouter } from "next/navigation";
-import { Activity, AlertTriangle, CheckCircle2, Clock } from "lucide-react";
+import { Activity, AlertTriangle, CheckCircle2, Clock, TrendingUp, TrendingDown, Minus } from "lucide-react";
 
-function StatBadge({ icon: Icon, label, value, color }: {
-  icon: React.ElementType; label: string; value: string; color: string;
-}) {
+interface StatBadgeProps {
+  icon: React.ElementType;
+  label: string;
+  value: string;
+  color: string;
+  trend?: "up" | "down" | "stable";
+  trendVal?: string;
+  subtitle?: string;
+}
+
+function StatBadge({ icon: Icon, label, value, color, trend, trendVal, subtitle }: StatBadgeProps) {
+  const TrendIcon = trend === "up" ? TrendingUp : trend === "down" ? TrendingDown : Minus;
+  const trendColor = trend === "up" ? "#3D6B40" : trend === "down" ? "#9A2830" : "#8896A6";
+
   return (
-    <div style={{
-      flex: 1, display: "flex", alignItems: "center", gap: "1rem",
-      background: "#FFFFFF", border: "1px solid #E2E5EC",
-      borderRadius: "0.75rem", padding: "1rem 1.25rem",
-      boxShadow: "0 2px 4px -1px rgba(0, 0, 0, 0.03)",
-    }}>
+    <div
+      className="card"
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "0.75rem",
+        padding: "1.25rem",
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
+      {/* Top color bar */}
       <div style={{
-        width: "44px", height: "44px", borderRadius: "10px",
-        background: `${color}12`, border: `1px solid ${color}25`,
-        display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
-      }}>
-        <Icon size={20} color={color} />
+        position: "absolute", top: 0, left: 0, right: 0, height: "3px",
+        background: `linear-gradient(90deg, ${color}, ${color}60)`,
+      }} />
+
+      <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between" }}>
+        <div style={{
+          width: "40px", height: "40px",
+          borderRadius: "10px",
+          background: `${color}12`,
+          border: `1px solid ${color}20`,
+          display: "flex", alignItems: "center", justifyContent: "center",
+          flexShrink: 0,
+        }}>
+          <Icon size={18} color={color} />
+        </div>
+        {trend && trendVal && (
+          <div style={{
+            display: "flex", alignItems: "center", gap: "3px",
+            padding: "0.175rem 0.5rem",
+            background: `${trendColor}10`,
+            border: `1px solid ${trendColor}20`,
+            borderRadius: "9999px",
+          }}>
+            <TrendIcon size={11} color={trendColor} />
+            <span style={{ fontSize: "0.65rem", fontWeight: 700, color: trendColor }}>{trendVal}</span>
+          </div>
+        )}
       </div>
+
       <div>
-        <div style={{ fontSize: "0.65rem", color: "#8896A6", textTransform: "uppercase", letterSpacing: "0.08em", fontWeight: 700 }}>
+        <div style={{ fontSize: "0.62rem", color: "var(--text-secondary)", textTransform: "uppercase", letterSpacing: "0.08em", fontWeight: 700, marginBottom: "0.25rem" }}>
           {label}
         </div>
-        <div style={{ fontSize: "1.35rem", fontWeight: 800, color: "#1A2332", lineHeight: 1.2 }}>{value}</div>
+        <div style={{ fontSize: "1.75rem", fontWeight: 800, color: "var(--text-primary)", lineHeight: 1, letterSpacing: "-0.02em" }}>
+          {value}
+        </div>
+        {subtitle && (
+          <div style={{ fontSize: "0.68rem", color: "var(--text-muted)", fontWeight: 500, marginTop: "0.25rem" }}>
+            {subtitle}
+          </div>
+        )}
       </div>
     </div>
   );
@@ -43,33 +90,81 @@ export default function DashboardPage() {
     return k.value > k.threshold.orange;
   }).length;
 
+  const avgScore = Math.round((DEMO_GLOBAL_SCORES.AC + DEMO_GLOBAL_SCORES.JCI + DEMO_GLOBAL_SCORES.HAS) / 3);
+
   return (
     <AppLayout>
       <div style={{ maxWidth: "1400px" }}>
-        {/* Header */}
-        <div style={{ marginBottom: "2rem" }}>
-          <div style={{ display: "flex", alignItems: "baseline", gap: "0.75rem" }}>
-            <h1 style={{ fontSize: "1.75rem", fontWeight: 800, color: "#1A2332", letterSpacing: "-0.02em" }}>Vue d&apos;Ensemble</h1>
-            <span style={{ fontSize: "0.8rem", color: "#8896A6", fontWeight: 500 }}>
-              HUIM6 — Rabat · {new Date().toLocaleDateString("fr-FR", { month: "long", year: "numeric" })}
-            </span>
+
+        {/* ── Page header ── */}
+        <div className="page-header">
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "0.75rem" }}>
+            <div>
+              <h1 className="page-title">Vue d&apos;Ensemble</h1>
+              <p className="page-subtitle">
+                Conformité multi-référentiel · HUIM6 Rabat ·{" "}
+                <span style={{ color: "var(--green)", fontWeight: 600 }}>
+                  {new Date().toLocaleDateString("fr-FR", { month: "long", year: "numeric" })}
+                </span>
+              </p>
+            </div>
+            <div style={{
+              display: "flex", alignItems: "center", gap: "0.5rem",
+              background: "rgba(61,107,64,0.08)",
+              border: "1px solid rgba(61,107,64,0.2)",
+              borderRadius: "9999px",
+              padding: "0.35rem 0.875rem",
+            }}>
+              <div style={{ width: "7px", height: "7px", borderRadius: "50%", background: "#3D6B40", animation: "pulse-green 2s infinite" }} />
+              <span style={{ fontSize: "0.72rem", fontWeight: 700, color: "#3D6B40" }}>Données en temps réel</span>
+            </div>
           </div>
-          <p style={{ color: "#4A5568", fontSize: "0.9rem", marginTop: "0.25rem" }}>
-            Conformité multi-référentiel — Accreditation Canada · JCI 8ème Éd. · HAS V2025
-          </p>
         </div>
 
-        {/* Stat bar */}
+        {/* ── Stat badges ── */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-          <StatBadge icon={Activity} label="Score Global Moyen"
-            value={`${Math.round((DEMO_GLOBAL_SCORES.AC + DEMO_GLOBAL_SCORES.JCI + DEMO_GLOBAL_SCORES.HAS) / 3)}%`}
-            color="#3D6B40" />
-          <StatBadge icon={AlertTriangle} label="Alertes Actives" value="10" color="#9A2830" />
-          <StatBadge icon={Clock} label="KPIs Hors Seuil" value={String(kpiNonConformes)} color="#D4830A" />
-          <StatBadge icon={CheckCircle2} label="Standards Conformes" value="68%" color="#3D6B40" />
+          <StatBadge
+            icon={Activity}
+            label="Score Global Moyen"
+            value={`${avgScore}%`}
+            color="#3D6B40"
+            trend="up"
+            trendVal="+2.1%"
+            subtitle="vs mois précédent"
+          />
+          <StatBadge
+            icon={AlertTriangle}
+            label="Alertes Actives"
+            value="10"
+            color="#9A2830"
+            trend="down"
+            trendVal="-3"
+            subtitle="non-conformités ouvertes"
+          />
+          <StatBadge
+            icon={Clock}
+            label="KPIs Hors Seuil"
+            value={String(kpiNonConformes)}
+            color="#D4830A"
+            trend="stable"
+            trendVal="=0"
+            subtitle="indicateurs à risque"
+          />
+          <StatBadge
+            icon={CheckCircle2}
+            label="Standards Conformes"
+            value="68%"
+            color="#3D6B40"
+            trend="up"
+            trendVal="+4%"
+            subtitle="sur tous référentiels"
+          />
         </div>
 
-        {/* Score gauges */}
+        {/* ── Score gauges ── */}
+        <div style={{ marginBottom: "0.5rem" }}>
+          <div className="card-header" style={{ marginBottom: "1rem" }}>Scores par Référentiel</div>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
           <ScoreGauge label="Accreditation Canada" code="AC" score={DEMO_GLOBAL_SCORES.AC}
             onClick={() => router.push("/framework/AC")} />
@@ -79,7 +174,7 @@ export default function DashboardPage() {
             onClick={() => router.push("/framework/HAS")} />
         </div>
 
-        {/* Trend + Alerts */}
+        {/* ── Trend + Alerts ── */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
           <TrendChart />
           <div className="overflow-x-auto w-full">
@@ -87,7 +182,7 @@ export default function DashboardPage() {
           </div>
         </div>
 
-        {/* Heatmap */}
+        {/* ── Heatmap ── */}
         <div className="overflow-x-auto w-full pb-4">
           <HeatMap />
         </div>
